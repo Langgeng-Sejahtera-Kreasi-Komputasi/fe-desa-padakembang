@@ -1,4 +1,6 @@
 /* ===== RESET & BASE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +12,7 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #0D47A1;
   background: #BBDEFB;
   line-height: 1.6;
@@ -81,7 +83,7 @@ img {
 }
 .btn-primary:hover {
   background: #0D47A1;
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 8px 30px rgba(13, 71, 161, 0.5);
 }
 .btn-secondary {
@@ -91,7 +93,7 @@ img {
 }
 .btn-secondary:hover {
   background: #1A237E;
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 8px 30px rgba(26, 35, 126, 0.5);
 }
 .btn-sm {

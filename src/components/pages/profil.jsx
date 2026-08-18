@@ -7,7 +7,7 @@ const Profil = () => {
       background: 'linear-gradient(145deg, #0a192f, #0d47a1)', // Biru Tua ke Biru Dongker
       minHeight: '100vh',
       color: '#ffffff',
-      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+      fontFamily: "'Inter', Tahoma, Geneva, Verdana, sans-serif"
     }}>
       
       {/* --- CSS INTERNAL UNTUK TAMPILAN BIRU AQUA --- */}

@@ -11,7 +11,7 @@
   justify-content: center;
   background: linear-gradient(135deg, #ebf5fb 0%, #d4e6f1 100%);
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
   scroll-snap-align: none !important;
   position: relative;
   z-index: 1000;
@@ -154,7 +154,7 @@
 }
 
 .login-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 8px 30px rgba(26, 82, 118, 0.4);
 }
 
@@ -269,7 +269,7 @@
   color: white;
   background: #1a5276;
   border-color: #1a5276;
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 4px 15px rgba(26, 82, 118, 0.2);
   text-decoration: none;
 }

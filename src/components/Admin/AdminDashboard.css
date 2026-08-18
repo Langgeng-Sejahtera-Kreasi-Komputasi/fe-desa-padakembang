@@ -48,7 +48,7 @@
   display: flex;
   min-height: 100vh;
   background: var(--admin-bg);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -163,7 +163,7 @@
 
 .admin-logout:hover {
   background: rgba(231, 76, 60, 0.3);
-  transform: translateY(-2px);
+  transform: translateY(0px);
 }
 
 /* ============================================ */
@@ -567,7 +567,7 @@
 }
 
 .umkm-search-filter .btn-export:hover {
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 4px 20px rgba(39, 174, 96, 0.3);
 }
 
@@ -760,7 +760,7 @@
 }
 
 .btn-add:hover {
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 4px 20px rgba(41, 128, 185, 0.3);
 }
 
@@ -781,7 +781,7 @@
 }
 
 .btn-export:hover {
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 4px 20px rgba(39, 174, 96, 0.3);
 }
 
@@ -834,7 +834,7 @@
 }
 
 .btn-save:hover {
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 4px 15px rgba(26, 82, 118, 0.3);
 }
 
@@ -1070,7 +1070,7 @@
 .quick-action-btn:hover {
   border-color: var(--admin-primary-lighter);
   background: #f8fbff;
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 4px 15px rgba(26, 82, 118, 0.1);
 }
 
@@ -1161,7 +1161,7 @@
 }
 
 .cctv-status-item:hover {
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: var(--admin-shadow);
 }
 
@@ -1390,7 +1390,7 @@
 }
 
 .btn-save-modal:hover {
-  transform: translateY(-2px);
+  transform: translateY(0px);
   box-shadow: 0 8px 25px rgba(26, 82, 118, 0.3);
 }
 
@@ -2099,7 +2099,7 @@
 
 .berita-actions .btn-edit:hover {
   background: #d4e6f1;
-  transform: translateY(-2px);
+  transform: translateY(0px);
 }
 
 .berita-actions .btn-delete {
@@ -2109,7 +2109,7 @@
 
 .berita-actions .btn-delete:hover {
   background: #f5c6c6;
-  transform: translateY(-2px);
+  transform: translateY(0px);
 }
 
 .berita-empty {

@@ -89,7 +89,7 @@ const UMKM = () => {
           background: linear-gradient(145deg, #0a192f, #0d47a1);
           min-height: 100vh;
           color: #ffffff;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-family: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
         }
         .container {
           max-width: 1200px;
