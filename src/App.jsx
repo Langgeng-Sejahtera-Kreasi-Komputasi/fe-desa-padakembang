@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 // HALAMAN PUBLIK
 // ==========================================
 import Beranda from './components/pages/Beranda'
-import Profil from './components/pages/profil'
+import profil from './components/pages/profil'
 import Energi from './components/pages/Energi'
 import Berita from './components/pages/Berita'
 import UMKM from './components/pages/UMKM'
@@ -16,7 +16,7 @@ import Layanan from './components/pages/Layanan'
 import LayananForm from './components/pages/LayananForm'
 import Statistik from './components/pages/Statistik'
 import Aparat from './components/pages/Aparat'
-import PetaWilayah from './components/pages/petawilayah'
+import petawilayah from './components/pages/petawilayah'
 import CCTV from './components/pages/CCTV'
 
 // ==========================================
