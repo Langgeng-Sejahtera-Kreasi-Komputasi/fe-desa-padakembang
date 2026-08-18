@@ -15,7 +15,7 @@ import {
   FaPrint,
 } from "react-icons/fa";
 
-import './PetaWilayah.css'
+import './petawilayah.css';
 
 const PetaWilayah = () => {
   const [activeFilter, setActiveFilter] = useState("all");
