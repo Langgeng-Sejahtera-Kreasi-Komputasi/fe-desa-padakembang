@@ -1,0 +1,207 @@
+/* ============================================================
+   src/components/Navbar.css
+   NAVIGATION - DESA DIGITAL PADAKEMBANG
+   VERSION FINAL - RAPI & PADAT
+   ============================================================ */
+
+/* ============================================================
+   1. NAVBAR UTAMA (Sticky Biru)
+   ============================================================ */
+.navbar {
+  background: linear-gradient(135deg, #0D47A1, #1565C0);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(13, 71, 161, 0.4);
+  border-bottom: 2px solid #42A5F5;
+}
+
+/* ============================================================
+   2. CONTAINER (Logo Kiri, Menu Kanan Full)
+   ============================================================ */
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   3. LOGO & BRAND
+   ============================================================ */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.navbar__brand-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar__brand-highlight {
+  font-weight: 600;
+  color: #64B5F6;
+}
+
+/* ============================================================
+   4. TOMBOL HAMBURGER (Mobile)
+   ============================================================ */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #E3F2FD;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   5. MENU UTAMA (Desktop)
+   ============================================================ */
+.navbar__menu {
+  display: flex;
+  gap: 6px; /* ★ Jarak antar menu diperkecil jadi 6px agar padat */
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem; /* ★ Font diperkecil agar muat banyak menu */
+  font-weight: 500;
+}
+
+/* ============================================================
+   6. LINK BIASA
+   ============================================================ */
+.navbar__link {
+  color: #E3F2FD;
+  text-decoration: none;
+  padding: 6px 12px; /* ★ Padding diperkecil */
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Link yang Sedang Aktif (Beranda, dll) */
+.navbar__link--active {
+  background: #42A5F5;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 50px;
+}
+
+/* ============================================================
+   7. TOMBOL AJUKAN LAYANAN (CTA)
+   ============================================================ */
+.navbar__cta {
+  background: #42A5F5;
+  color: #FFFFFF;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-left: 4px; /* Jarak sedikit dari menu sebelumnya */
+  font-size: 0.8rem;
+  box-shadow: 0 4px 15px rgba(66, 165, 245, 0.3);
+}
+
+.navbar__cta:hover {
+  transform: translateY(0px);
+  box-shadow: 0 6px 20px rgba(66, 165, 245, 0.5);
+}
+
+/* ============================================================
+   8. TOMBOL LOGIN ADMIN (Baru)
+   ============================================================ */
+.navbar__login {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #E3F2FD;
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: 0.3s;
+  margin-left: 4px;
+}
+
+.navbar__login:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #42A5F5;
+  color: #FFFFFF;
+}
+
+.navbar__login .icon {
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   9. RESPONSIVE (MOBILE)
+   ============================================================ */
+@media (max-width: 992px) {
+  .navbar__toggle {
+    display: flex !important;
+  }
+  
+  .navbar__menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    padding: 16px 0;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .navbar__menu--open {
+    display: flex !important;
+  }
+
+  .navbar__menu li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .navbar__link, .navbar__cta, .navbar__login {
+    display: inline-block;
+    width: auto;
+    margin: 0 auto;
+    padding: 8px 20px;
+  }
+}
