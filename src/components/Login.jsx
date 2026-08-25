@@ -1,6 +1,7 @@
 // src/components/pages/Login.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './Login.css'; // Menggunakan CSS eksternal Anda
 
 // ============================================
@@ -105,6 +106,10 @@ const Login = () => {
   
   return (
     <div className="login-page">
+      <Helmet>
+        <title>Masuk / Login | Portal Desa Padakembang</title>
+        <meta name="description" content="Halaman login autentikasi staf aparatur desa dan pengguna warga Desa Padakembang." />
+      </Helmet>
       <div className="login-container">
         {/* Header */}
         <div className="login-header">

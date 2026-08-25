@@ -94,5 +94,5 @@ app.get("/aparat", (req, res) => {
 // ==============================
 
 app.listen(PORT, () => {
-    console.log(`🚀 API berjalan di port ${PORT}`);
+    console.log(`API berjalan di port ${PORT}`);
 });

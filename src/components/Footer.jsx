@@ -4,62 +4,81 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <footer style={{
-      background: 'linear-gradient(135deg, #0D47A1, #1A237E)',
-      color: '#E3F2FD',
-      padding: '40px 0',
-      borderTop: '3px solid #42A5F5'
+      background: '#0F172A',
+      color: '#94A3B8',
+      padding: '60px 0 32px',
+      borderTop: '1px solid rgba(205, 206, 234, 0.15)'
     }}>
       <div className="container" style={{
         display: 'grid',
         gridTemplateColumns: '2fr 1fr 1fr',
-        gap: '40px'
+        gap: '48px'
       }}>
         <div>
-          <h4 style={{ color: '#64B5F6', marginBottom: '16px' }}> Desa Padakembang</h4>
-          <p style={{ marginBottom: '8px', color: '#90CAF9' }}>
-            Desa Energi Mandiri - Kecamatan Padakembang, Kabupaten Tasikmalaya, Jawa Barat
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+            <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
+              Desa Digital <span style={{ color: '#CDCEEA' }}>Padakembang</span>
+            </span>
+          </div>
+          <p style={{ marginBottom: '16px', color: '#94A3B8', fontSize: '0.92rem', lineHeight: 1.6, maxWidth: '400px' }}>
+            Kecamatan Padakembang, Kabupaten Tasikmalaya, Jawa Barat. Menuju kemandirian energi dan transformasi pelayanan digital.
           </p>
-          <p style={{ color: '#90CAF9' }}>
-            <i className="fas fa-phone" style={{ color: '#64B5F6' }}></i> (0265) 123-4567 &nbsp;|&nbsp;
-            <i className="fas fa-envelope" style={{ color: '#64B5F6' }}></i> desa@padakembang.id
-          </p>
+          <div style={{ fontSize: '0.88rem', color: '#CBD5E1', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+            <span>(0265) 123-4567</span>
+            <span>desa@padakembang.id</span>
+          </div>
         </div>
+
         <div>
-          <h4 style={{ color: '#64B5F6', marginBottom: '16px' }}>Navigasi</h4>
-          <p><Link to="/" style={{ color: '#90CAF9', transition: '0.3s' }}>Beranda</Link></p>
-          <p><Link to="/energi" style={{ color: '#90CAF9', transition: '0.3s' }}>Program Energi</Link></p>
-          <p><Link to="/layanan" style={{ color: '#90CAF9', transition: '0.3s' }}>Layanan Online</Link></p>
-          <p><Link to="/cctv" style={{ color: '#90CAF9', transition: '0.3s' }}>CCTV</Link></p>
+          <h4 style={{ color: '#FFFFFF', fontSize: '0.95rem', fontWeight: 600, marginBottom: '16px', letterSpacing: '0.02em' }}>
+            Navigasi
+          </h4>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem' }}>
+            <Link to="/" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Beranda</Link>
+            <Link to="/energi" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Program Energi</Link>
+            <Link to="/berita" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Berita & Informasi</Link>
+            <Link to="/layanan" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Layanan Publik</Link>
+            <Link to="/peta" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Peta Wilayah</Link>
+          </div>
         </div>
+
         <div>
-          <h4 style={{ color: '#64B5F6', marginBottom: '16px' }}>Layanan</h4>
-          <p><Link to="/layanan/form" style={{ color: '#90CAF9', transition: '0.3s' }}>Surat Keterangan</Link></p>
-          <p><Link to="/layanan/form" style={{ color: '#90CAF9', transition: '0.3s' }}>Bantuan Sosial</Link></p>
-          <p><Link to="/layanan/form" style={{ color: '#90CAF9', transition: '0.3s' }}>Pengaduan</Link></p>
-          <p><Link to="/layanan/form" style={{ color: '#90CAF9', transition: '0.3s' }}>UMKM & Energi</Link></p>
+          <h4 style={{ color: '#FFFFFF', fontSize: '0.95rem', fontWeight: 600, marginBottom: '16px', letterSpacing: '0.02em' }}>
+            Layanan
+          </h4>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem' }}>
+            <Link to="/layanan/form" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Surat Keterangan</Link>
+            <Link to="/layanan/form" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Bantuan Sosial</Link>
+            <Link to="/layanan/form" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Pengaduan Warga</Link>
+            <Link to="/umkm" style={{ color: '#94A3B8' }} onMouseOver={e => e.target.style.color = '#FFFFFF'} onMouseOut={e => e.target.style.color = '#94A3B8'}>Pemberdayaan UMKM</Link>
+          </div>
         </div>
-        <div className="footer-bottom" style={{
+
+        <div style={{
           gridColumn: '1 / -1',
-          borderTop: '1px solid rgba(100, 181, 246, 0.2)',
-          paddingTop: '16px',
-          textAlign: 'center',
-          fontSize: '0.9rem',
-          opacity: 0.7,
-          color: '#90CAF9'
+          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+          paddingTop: '24px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '12px',
+          fontSize: '0.85rem',
+          color: '#64748B'
         }}>
-          &copy; 2026 Desa Padakembang. Dibangun dengan <i className="fas fa-heart" style={{ color: '#64B5F6' }}></i> untuk kemandirian energi.
+          <div>&copy; 2026 Pemerintah Desa Padakembang. Hak Cipta Dilindungi.</div>
+          <div style={{ display: 'flex', gap: '16px' }}>
+            <Link to="/login" style={{ color: '#64748B' }} onMouseOver={e => e.target.style.color = '#CDCEEA'} onMouseOut={e => e.target.style.color = '#64748B'}>Portal Staf & Admin</Link>
+          </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 768px) {
-          .footer .container {
+          footer .container {
             grid-template-columns: 1fr !important;
-            gap: 24px;
+            gap: 32px;
           }
-        }
-        .footer a:hover {
-          color: #64B5F6 !important;
         }
       `}</style>
     </footer>

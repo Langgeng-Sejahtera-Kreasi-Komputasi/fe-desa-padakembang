@@ -6,22 +6,23 @@
 /* CSS VARIABLES
 /* ============================================ */
 :root {
-  --admin-primary: #1a5276;
-  --admin-primary-light: #2980b9;
-  --admin-primary-lighter: #3498db;
-  --admin-bg: #f0f4f8;
-  --admin-card-bg: #ffffff;
-  --admin-border: #eaf2f8;
-  --admin-text-primary: #1a5276;
-  --admin-text-secondary: #2c3e50;
-  --admin-text-muted: #5d6d7e;
-  --admin-text-light: #7f8c8d;
-  --admin-success: #27ae60;
-  --admin-danger: #e74c3c;
-  --admin-warning: #f39c12;
-  --admin-sidebar-bg: linear-gradient(180deg, #1a2a3a 0%, #1a5276 100%);
-  --admin-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  --admin-shadow-hover: 0 8px 30px rgba(26, 82, 118, 0.08);
+  --admin-primary: #272FA2;
+  --admin-primary-light: #3742C7;
+  --admin-primary-lighter: #CDCEEA;
+  --admin-bg: #F8FAFC;
+  --admin-card-bg: #FFFFFF;
+  --admin-border: #E2E8F0;
+  --admin-text-primary: #0F172A;
+  --admin-text-secondary: #334155;
+  --admin-text-muted: #64748B;
+  --admin-text-light: #94A3B8;
+  --admin-success: #53AA4B;
+  --admin-danger: #E11D48;
+  --admin-warning: #D97706;
+  --admin-accent: #CEDD0D;
+  --admin-sidebar-bg: linear-gradient(180deg, #0F172A 0%, #1C2278 100%);
+  --admin-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  --admin-shadow-hover: 0 10px 25px -4px rgba(39, 47, 162, 0.08);
 
   /* Spacing scale */
   --admin-space-xs: 6px;

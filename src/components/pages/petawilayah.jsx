@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import {
   FaShieldAlt,
   FaLandmark,
@@ -311,6 +312,11 @@ const PetaWilayah = () => {
 
   return (
     <section className="peta-section" id="peta-wilayah">
+      <Helmet>
+        <title>Peta Digital & Titik Wilayah | Desa Padakembang</title>
+        <meta name="description" content="Peta digital interaktif Desa Padakembang: batas wilayah 7 dusun, 27 titik fasilitas umum, sekolah, tempat ibadah, CCTV pengawas, dan infrastruktur desa." />
+        <meta name="keywords" content="Peta Desa Padakembang, Peta Interaktif Padakembang, Titik Lokasi Fasilitas Desa, Peta Wilayah Tasikmalaya" />
+      </Helmet>
       {/* ================= SIDEBAR ================= */}
       <aside className="peta-sidebar">
         <div className="peta-brand">
@@ -385,7 +391,6 @@ const PetaWilayah = () => {
         {/* MAP HEADER dengan aksi */}
         <div className="map-header">
           <div className="map-header-left">
-            <span className="map-badge"> Interaktif</span>
             <span className="map-coord">7°08'27.12" S · 108°12'45.89" E</span>
           </div>
           <div className="map-header-right">

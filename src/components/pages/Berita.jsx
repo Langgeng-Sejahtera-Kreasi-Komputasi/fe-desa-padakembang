@@ -1,5 +1,6 @@
 // src/components/pages/Berita.jsx
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Berita = () => {
   const [selectedBerita, setSelectedBerita] = useState(null);
@@ -8,25 +9,28 @@ const Berita = () => {
   const beritaData = [
     { 
       id: 1, 
-      title: 'Festival Budaya Desa', 
+      category: 'Budaya',
+      title: 'Festival Budaya Desa Padakembang', 
       date: '20 Juli 2026', 
-      desc: 'Masyarakat meriahkan festival tahunan dengan berbagai pertunjukan seni dan kuliner.',
+      desc: 'Masyarakat meriahkan festival tahunan dengan berbagai pertunjukan seni, pagelaran wayang, dan bazar kuliner lokal.',
       fullContent: 'Festival Budaya Desa tahun ini berlangsung meriah dengan partisipasi seluruh warga desa. Acara dimulai dengan parade budaya yang menampilkan berbagai kesenian tradisional seperti tari jaipong, angklung, dan wayang kulit. Selain itu, terdapat pula bazar kuliner yang menyajikan berbagai makanan khas desa. Festival ini diadakan untuk melestarikan budaya dan mempererat tali silaturahmi antar warga desa.',
       photo: 'https://mmc.kalteng.go.id/files/berita/10072025094939_0.jpg'
     },
     { 
       id: 2, 
-      title: 'Panen Raya Padi', 
+      category: 'Pertanian',
+      title: 'Panen Raya Padi Organik', 
       date: '15 Juli 2026', 
-      desc: 'Petani desa merayakan panen raya dengan hasil melimpah tahun ini.',
+      desc: 'Kelompok tani desa mencatatkan rekor panen raya dengan hasil melimpah berkat penerapan irigasi energi terbarukan.',
       fullContent: 'Panen raya padi tahun ini mencapai hasil yang sangat memuaskan. Dengan luas lahan 40 hektar, para petani berhasil memanen lebih dari 200 ton padi. Hal ini tidak terlepas dari dukungan pemerintah desa dalam penyediaan bibit unggul dan pupuk berkualitas. Panen raya dirayakan dengan tradisi "Mapag Sri" sebagai bentuk rasa syukur kepada Tuhan Yang Maha Esa.',
       photo: 'https://cdn.antaranews.com/cache/1200x800/2023/01/27/panen-raya.jpg.webp'
     },
     { 
       id: 3, 
-      title: 'Pembangunan Jalan Baru', 
+      category: 'Infrastruktur',
+      title: 'Pembangunan Jalan Poros Desa Tahap II', 
       date: '10 Juli 2026', 
-      desc: 'Pembangunan infrastruktur jalan desa untuk meningkatkan aksesibilitas.',
+      desc: 'Peningkatan konektivitas antar dusun melalui pengaspalan dan pemasangan 120 titik PJU bertenaga surya.',
       fullContent: 'Pembangunan jalan baru sepanjang 5 kilometer telah dimulai untuk menghubungkan desa dengan kecamatan. Proyek ini dibiayai oleh dana desa dan diharapkan selesai dalam waktu 3 bulan. Dengan adanya jalan baru ini, akses transportasi masyarakat akan semakin lancar dan memudahkan distribusi hasil pertanian ke pasar.',
       photo: 'https://binamarga.pu.go.id/balai-dki-jabar/uploads/images/451/pn640/sudah-memasuki-tahap-pengaspalan-pembangunan-jalan-baru-lingkar-utara-jatigede-selesai-bulan-depan.jpeg'
     },
@@ -35,7 +39,7 @@ const Berita = () => {
   const handleBeritaClick = (berita) => {
     setSelectedBerita(berita);
     setShowModal(true);
-    document.body.style.overflow = 'hidden'; // Mencegah scroll saat modal terbuka
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
@@ -46,59 +50,63 @@ const Berita = () => {
 
   return (
     <>
-      {/* ===== CSS INTERNAL UNTUK TAMPILAN RAPI & ELEGAN ===== */}
+      <Helmet>
+        <title>Kabar & Warta Desa | Desa Padakembang</title>
+        <meta name="description" content="Berita terkini, agenda kegiatan, pengumuman resmi, dan dokumentasi program pembangunan di Desa Padakembang." />
+        <meta name="keywords" content="Berita Desa Padakembang, Warta Desa Padakembang, Informasi Publik Padakembang, Agenda Desa" />
+      </Helmet>
       <style>{`
         .berita-section {
-          padding: 80px 20px;
-          background: linear-gradient(145deg, #0a192f, #0d47a1);
+          padding: 80px 0;
+          background: #F8FAFC;
           min-height: 100vh;
-          color: #ffffff;
-          font-family: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
+          color: #334155;
         }
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-        }
+        
         .section-title {
           text-align: center;
           font-size: 2.5rem;
-          font-weight: 700;
-          margin-bottom: 40px;
-          background: linear-gradient(to right, #ffffff, #00b4d8);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          font-weight: 800;
+          margin-bottom: 10px;
+          letter-spacing: -0.02em;
+          color: #0F172A;
         }
-        
-        /* Grid Layout */
-        .berita-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 30px;
+        .section-subtitle {
+          text-align: center;
+          color: #64748B;
+          font-size: 1.05rem;
+          margin-bottom: 48px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
         }
 
-        /* Kartu Berita */
+        .berita-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 28px;
+        }
+
         .berita-card {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          border-radius: 16px;
+          background: #FFFFFF;
+          border-radius: 18px;
           overflow: hidden;
-          border: 1px solid rgba(0, 180, 216, 0.15);
-          transition: all 0.3s ease;
+          border: 1px solid #E2E8F0;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+          transition: all 0.25s ease;
           display: flex;
           flex-direction: column;
         }
         .berita-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(0, 180, 216, 0.5);
-          box-shadow: 0 12px 30px rgba(0, 180, 216, 0.15);
+          transform: translateY(-3px);
+          border-color: #CDCEEA;
+          box-shadow: 0 12px 28px -4px rgba(39, 47, 162, 0.08);
         }
 
-        /* Foto Berita */
         .berita-photo {
           width: 100%;
           height: 200px;
-          background: #1c2e4a;
+          background: #F1F5F9;
           position: relative;
           overflow: hidden;
         }
@@ -106,6 +114,10 @@ const Berita = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+        .berita-card:hover .berita-photo-img {
+          transform: scale(1.03);
         }
         .berita-photo-fallback {
           display: flex;
@@ -113,62 +125,84 @@ const Berita = () => {
           justify-content: center;
           width: 100%;
           height: 100%;
-          font-size: 4rem;
-          background: #1c2e4a;
-          color: #00b4d8;
+          font-size: 3rem;
+          background: #F1F5F9;
+          color: #94A3B8;
         }
 
-        /* Konten Kartu */
-        .berita-card h3 {
-          padding: 0 20px;
-          margin: 10px 0 4px 0;
-          font-size: 1.2rem;
-          color: #ffffff;
-        }
-        .berita-date {
-          padding: 0 20px;
-          font-size: 0.85rem;
-          color: #90e0ef;
-          margin-bottom: 4px;
-        }
-        .berita-card p {
-          padding: 0 20px;
-          color: #e0fbfc;
-          font-size: 0.95rem;
-          line-height: 1.5;
+        .berita-body {
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
           flex: 1;
         }
 
-        /* Tombol Baca */
-        .berita-btn {
-          margin: 16px 20px 20px 20px;
-          padding: 8px 16px;
-          background: transparent;
-          border: 1px solid #00b4d8;
-          color: #00b4d8;
-          border-radius: 50px;
-          cursor: pointer;
+        .berita-category {
+          display: inline-block;
+          background: rgba(39, 47, 162, 0.08);
+          color: #272FA2;
+          padding: 4px 12px;
+          border-radius: 15px;
+          font-size: 0.78rem;
+          font-weight: 600;
+          margin-bottom: 12px;
+          align-self: flex-start;
+          border: 1px solid rgba(39, 47, 162, 0.15);
+        }
+
+        .berita-card h3 {
+          margin: 0 0 10px 0;
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: #0F172A;
+          line-height: 1.35;
+          letter-spacing: -0.01em;
+        }
+        .berita-date {
+          font-size: 0.82rem;
+          color: #94A3B8;
+          margin-bottom: 12px;
           font-weight: 500;
-          transition: all 0.3s;
+        }
+        .berita-card p {
+          color: #475569;
+          font-size: 0.92rem;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          flex: 1;
+        }
+
+        .berita-btn {
+          padding: 8px 18px;
+          background: transparent;
+          border: 1px solid #E2E8F0;
+          color: #272FA2;
+          border-radius: 15px;
+          cursor: pointer;
+          font-weight: 600;
+          font-size: 0.85rem;
+          transition: all 0.2s ease;
           align-self: flex-start;
         }
         .berita-btn:hover {
-          background: #00b4d8;
-          color: #ffffff;
+          background: #272FA2;
+          border-color: #272FA2;
+          color: #FFFFFF;
         }
 
-        /* ===== MODAL POPUP ===== */
+        /* Clean Modal */
         .modal-overlay {
           position: fixed;
           top: 0; left: 0; right: 0; bottom: 0;
-          background: rgba(0, 0, 0, 0.7);
+          background: rgba(15, 23, 42, 0.6);
           backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
           display: flex;
           align-items: center;
           justify-content: center;
           z-index: 9999;
           padding: 20px;
-          animation: fadeIn 0.3s ease;
+          animation: fadeIn 0.2s ease;
         }
         @keyframes fadeIn {
           from { opacity: 0; }
@@ -176,47 +210,51 @@ const Berita = () => {
         }
         
         .modal-content {
-          background: linear-gradient(145deg, #122c54, #0d47a1);
+          background: #FFFFFF;
           border-radius: 20px;
-          max-width: 700px;
+          max-width: 680px;
           width: 100%;
           max-height: 90vh;
           overflow-y: auto;
-          padding: 30px;
+          padding: 32px;
           position: relative;
-          border: 1px solid rgba(0, 180, 216, 0.3);
-          animation: slideUp 0.3s ease;
+          border: 1px solid #E2E8F0;
+          box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+          animation: slideUp 0.25s ease;
         }
         @keyframes slideUp {
-          from { transform: translateY(30px); opacity: 0; }
+          from { transform: translateY(20px); opacity: 0; }
           to { transform: translateY(0); opacity: 1; }
         }
 
         .modal-close {
           position: absolute;
-          top: 15px;
-          right: 15px;
-          background: rgba(255,255,255,0.1);
+          top: 18px;
+          right: 18px;
+          background: #F1F5F9;
           border: none;
-          color: #ffffff;
-          width: 36px;
-          height: 36px;
+          color: #64748B;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
-          font-size: 1.2rem;
+          font-size: 1rem;
           cursor: pointer;
-          transition: 0.3s;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .modal-close:hover {
-          background: #00b4d8;
-          transform: rotate(90deg);
+          background: #E2E8F0;
+          color: #0F172A;
         }
 
         .modal-berita-photo {
           width: 100%;
-          height: 250px;
-          border-radius: 12px;
+          height: 260px;
+          border-radius: 14px;
           overflow: hidden;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
         .modal-berita-photo-img {
           width: 100%;
@@ -224,56 +262,54 @@ const Berita = () => {
           object-fit: cover;
         }
         .modal-berita-date {
-          color: #90e0ef;
-          font-size: 0.9rem;
-          margin-bottom: 6px;
+          color: #64748B;
+          font-size: 0.85rem;
+          margin-bottom: 8px;
+          font-weight: 500;
         }
         .modal-title {
-          font-size: 2rem;
-          color: #ffffff;
-          margin: 0 0 8px 0;
-        }
-        .modal-berita-divider {
-          height: 2px;
-          background: #00b4d8;
-          width: 60px;
-          margin-bottom: 16px;
+          font-size: 1.8rem;
+          font-weight: 800;
+          color: #0F172A;
+          margin: 0 0 16px 0;
+          line-height: 1.3;
+          letter-spacing: -0.02em;
         }
         .modal-desc {
-          color: #e0fbfc;
+          color: #334155;
           line-height: 1.8;
-          font-size: 1rem;
+          font-size: 0.98rem;
         }
         .modal-btn {
-          margin-top: 20px;
+          margin-top: 24px;
           padding: 10px 24px;
-          background: #00b4d8;
-          color: #ffffff;
+          background: #272FA2;
+          color: #FFFFFF;
           border: none;
-          border-radius: 50px;
+          border-radius: 15px;
           font-weight: 600;
+          font-size: 0.9rem;
           cursor: pointer;
-          transition: 0.3s;
+          transition: all 0.2s ease;
         }
         .modal-btn:hover {
-          background: #0096b4;
-          transform: scale(1.05);
+          background: #1C2278;
         }
 
-        /* Responsive Mobile */
         @media (max-width: 768px) {
           .berita-grid { grid-template-columns: 1fr; }
           .section-title { font-size: 2rem; }
           .modal-content { padding: 20px; }
           .modal-berita-photo { height: 180px; }
-          .modal-title { font-size: 1.5rem; }
+          .modal-title { font-size: 1.4rem; }
         }
       `}</style>
 
-      {/* ===== HALAMAN BERITA ===== */}
+      {/* HALAMAN BERITA */}
       <section className="berita-section">
         <div className="container">
-          <h2 className="section-title">Berita Terkini</h2>
+          <h2 className="section-title">Warta & Kabar Terkini</h2>
+          <p className="section-subtitle">Informasi resmi seputar program, pembangunan, dan aktivitas warga Desa Padakembang</p>
           
           <div className="berita-grid">
             {beritaData.map((berita) => (
@@ -290,28 +326,30 @@ const Berita = () => {
                     }}
                   />
                 </div>
-                <div className="berita-date">{berita.date}</div>
-                <h3>{berita.title}</h3>
-                <p>{berita.desc}</p>
-                <button 
-                  className="berita-btn"
-                  onClick={() => handleBeritaClick(berita)}
-                >
-                  Baca Selengkapnya →
-                </button>
+                <div className="berita-body">
+                  <span className="berita-category">{berita.category}</span>
+                  <div className="berita-date">{berita.date}</div>
+                  <h3>{berita.title}</h3>
+                  <p>{berita.desc}</p>
+                  <button 
+                    className="berita-btn"
+                    onClick={() => handleBeritaClick(berita)}
+                  >
+                    Baca Selengkapnya →
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== MODAL DETAIL BERITA ===== */}
+      {/* MODAL DETAIL BERITA */}
       {showModal && selectedBerita && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>✕</button>
             <div className="modal-body">
-              {/* Gambar di modal */}
               <div className="modal-berita-photo">
                 <img 
                   src={selectedBerita.photo} 
@@ -319,14 +357,13 @@ const Berita = () => {
                   className="modal-berita-photo-img"
                   onError={(e) => {
                     e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `<div class="berita-photo-fallback" style="border-radius:12px;font-size:4rem;height:100%;display:flex;align-items:center;justify-content:center;background:#1c2e4a;">📰</div>`;
+                    e.target.parentElement.innerHTML = `<div class="berita-photo-fallback" style="border-radius:12px;font-size:3rem;height:100%;display:flex;align-items:center;justify-content:center;background:#F1F5F9;">📰</div>`;
                   }}
                 />
               </div>
               <div className="modal-berita-date">{selectedBerita.date}</div>
               <h2 className="modal-title">{selectedBerita.title}</h2>
-              <div className="modal-berita-divider"></div>
-              <p className="modal-desc modal-berita-full">{selectedBerita.fullContent}</p>
+              <p className="modal-desc">{selectedBerita.fullContent}</p>
               <button 
                 className="modal-btn"
                 onClick={closeModal}

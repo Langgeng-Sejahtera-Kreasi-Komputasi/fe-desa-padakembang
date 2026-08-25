@@ -1,25 +1,66 @@
 :root {
-  --primary: #29B6F6;
-  --primary-dark: #0288D1;
-  --primary-light: #B3E5FC;
-  --primary-bg: #E1F5FE;
-  --secondary: #FFD54F;
-  --secondary-light: #FFF9C4;
-  --secondary-dark: #F9A825;
-  --text-dark: #1A237E;
-  --text-body: #37474F;
-  --white: #FFFFFF;
-  --gray-light: #F5F7FA;
-  --gray-border: #E0E0E0;
+  /* Official User Palette */
+  --primary: #272FA2;
+  --primary-rgb: 39, 47, 162;
+  --primary-dark: #1C2278;
+  --primary-light: #3D46BE;
+  
+  --secondary: #53AA4B;
+  --secondary-rgb: 83, 170, 75;
+  --secondary-dark: #3F8638;
+  --secondary-light: #6EC066;
 
+  --tint: #CDCEEA;
+  --tint-rgb: 205, 206, 234;
+  --tint-light: #F0F1FA;
+  --tint-dark: #9DA0CF;
+
+  --accent: #CEDD0D;
+  --accent-rgb: 206, 221, 13;
+  --accent-dark: #A4B007;
+
+  /* Surfaces & Backgrounds (Apple / Google Clean Minimalist) */
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #F1F5F9;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  /* Typography Colors */
+  --text-heading: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  --text-on-primary: #FFFFFF;
+
+  /* Borders & Dividers */
+  --border-subtle: #E2E8F0;
+  --border-tint: rgba(205, 206, 234, 0.6);
+  --border-focus: #272FA2;
+
+  /* Spacing */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 40px;
-  --space-xxl: 60px;
+  --space-xxl: 64px;
 
-  --radius: 12px;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --transition: 0.3s ease;
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Elevation Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 14px -2px rgba(39, 47, 162, 0.06), 0 2px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 28px -4px rgba(39, 47, 162, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 40px -8px rgba(39, 47, 162, 0.12);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }

@@ -1,127 +1,173 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const cctvData = [
-  { name: 'Gerbang Utama', status: 'Online', time: '13:50:20' },
-  { name: 'Jalan Raya', status: 'Online', time: '13:50:20' },
-  { name: 'Lapangan Desa', status: 'Maintenance', time: '--:--:--' },
-  { name: 'Pasar Desa', status: 'Online', time: '13:50:20' },
-  { name: 'Balai Desa', status: 'Online', time: '13:50:20' },
-  { name: 'Simpang Tiga', status: 'Online', time: '13:50:20' }
+  { name: 'Gerbang Utama Desa', status: 'Online', time: '13:50:20', ip: 'CAM-01' },
+  { name: 'Jalan Poros Utama', status: 'Online', time: '13:50:20', ip: 'CAM-02' },
+  { name: 'Lapangan & Balai Desa', status: 'Online', time: '13:50:20', ip: 'CAM-03' },
+  { name: 'Sentra UMKM & Pasar', status: 'Online', time: '13:50:20', ip: 'CAM-04' },
+  { name: 'Simpang Tiga Cikadu', status: 'Online', time: '13:50:20', ip: 'CAM-05' },
+  { name: 'Kawasan PLTS Padamenak', status: 'Maintenance', time: '--:--:--', ip: 'CAM-06' }
 ]
 
 const CCTV = () => {
   return (
     <section style={{
-      padding: '60px 0',
-      background: 'linear-gradient(135deg, #0D47A1, #1A237E)',
-      minHeight: '100vh'
+      padding: '80px 0',
+      background: '#F8FAFC',
+      minHeight: '100vh',
+      color: '#334155'
     }}>
+      <Helmet>
+        <title>Monitoring CCTV Publik | Desa Padakembang</title>
+        <meta name="description" content="Sistem monitoring pengawasan CCTV real-time di titik strategis dan fasilitas umum Desa Padakembang untuk menjaga keamanan bersama." />
+        <meta name="keywords" content="CCTV Desa Padakembang, Monitoring Keamanan Desa, CCTV Real-time Desa" />
+      </Helmet>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{
-            fontSize: '3rem',
-            fontWeight: 800,
-            color: '#E3F2FD',
-            marginBottom: '8px'
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <span style={{
+            display: 'inline-block',
+            background: 'rgba(39, 47, 162, 0.08)',
+            color: '#272FA2',
+            fontSize: '0.82rem',
+            fontWeight: 600,
+            padding: '4px 14px',
+            borderRadius: '9999px',
+            marginBottom: '12px',
+            border: '1px solid rgba(39, 47, 162, 0.2)'
           }}>
-            CCTV <span style={{ color: '#64B5F6' }}>LIVE </span>
+            Monitoring Keamanan
+          </span>
+          <h1 style={{
+            fontSize: '2.5rem',
+            fontWeight: 800,
+            color: '#0F172A',
+            marginBottom: '10px',
+            letterSpacing: '-0.02em'
+          }}>
+            CCTV <span style={{ color: '#272FA2' }}>Pemantauan Publik</span>
           </h1>
           <p style={{
-            fontSize: '1.2rem',
-            color: '#90CAF9',
+            fontSize: '1.05rem',
+            color: '#64748B',
             maxWidth: '600px',
-            margin: '0 auto'
+            margin: '0 auto',
+            lineHeight: 1.6
           }}>
-            Pantau keamanan desa secara real-time
+            Sistem pengawasan titik strategis untuk menjaga ketertiban, keamanan, dan kelancaran mobilitas warga Desa Padakembang.
           </p>
         </div>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '24px'
         }}>
           {cctvData.map((cam, index) => (
             <div key={index} style={{
-              background: 'rgba(255,255,255,0.05)',
-              backdropFilter: 'blur(10px)',
-              borderRadius: '16px',
+              background: '#FFFFFF',
+              borderRadius: '18px',
               overflow: 'hidden',
-              color: '#E3F2FD',
-              border: '1px solid rgba(100, 181, 246, 0.15)',
-              boxShadow: '0 8px 30px rgba(0,0,0,0.2)'
-            }}>
+              border: '1px solid #E2E8F0',
+              boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.04)',
+              transition: 'all 0.25s ease'
+            }}
+            onMouseOver={e => {
+              e.currentTarget.style.transform = 'translateY(-3px)'
+              e.currentTarget.style.borderColor = '#CDCEEA'
+              e.currentTarget.style.boxShadow = '0 12px 28px -4px rgba(39, 47, 162, 0.08)'
+            }}
+            onMouseOut={e => {
+              e.currentTarget.style.transform = 'translateY(0)'
+              e.currentTarget.style.borderColor = '#E2E8F0'
+              e.currentTarget.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.04)'
+            }}
+            >
+              {/* Screen Viewport */}
               <div style={{
-                padding: '40px 20px',
-                textAlign: 'center',
-                minHeight: '180px',
+                height: '190px',
+                background: '#0B132B',
+                position: 'relative',
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '8px',
-                background: 'rgba(0,0,0,0.2)'
+                padding: '16px'
               }}>
-                <span style={{
-                  background: cam.status === 'Online' ? '#4CAF50' : '#FF9800',
-                  padding: '4px 14px',
-                  borderRadius: '50px',
-                  fontSize: '0.7rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  animation: cam.status === 'Online' ? 'pulse 1.5s infinite' : 'none'
+                <div style={{
+                  position: 'absolute',
+                  top: '12px',
+                  left: '14px',
+                  right: '14px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
                 }}>
-                  {cam.status === 'Online' ? '● LIVE' : '● OFFLINE'}
-                </span>
-                <span style={{ fontSize: '4rem' }}>{cam.icon}</span>
-                <span style={{
-                  fontSize: '0.8rem',
-                  opacity: 0.6,
+                  <span style={{
+                    color: cam.status === 'Online' ? '#53AA4B' : '#E11D48',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.5px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    <span style={{
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
+                      background: cam.status === 'Online' ? '#53AA4B' : '#E11D48'
+                    }}></span>
+                    {cam.status === 'Online' ? 'LIVE' : 'MAINTENANCE'}
+                  </span>
+                  <span style={{
+                    color: '#94A3B8',
+                    fontFamily: 'monospace',
+                    fontSize: '0.75rem'
+                  }}>{cam.ip}</span>
+                </div>
+
+                <div style={{
+                  color: '#475569',
+                  fontSize: '0.82rem',
+                  letterSpacing: '1px',
+                  fontFamily: 'monospace'
+                }}>
+                  {cam.status === 'Online' ? 'FEED STREAM AKTIF' : 'SIGNAL LOSS'}
+                </div>
+
+                <div style={{
+                  position: 'absolute',
+                  bottom: '12px',
+                  right: '14px',
+                  color: '#94A3B8',
                   fontFamily: 'monospace',
-                  color: '#90CAF9'
-                }}>{cam.time}</span>
-                <span style={{
-                  fontSize: '0.7rem',
-                  color: '#64B5F6'
+                  fontSize: '0.75rem'
                 }}>
-                  <i className="fas fa-video"></i> Streaming
-                </span>
+                  REC • {cam.time}
+                </div>
               </div>
+
+              {/* Card Footer */}
               <div style={{
-                padding: '16px 20px',
-                background: 'rgba(0,0,0,0.3)',
+                padding: '18px 20px',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center'
               }}>
-                <span style={{ fontWeight: 600 }}>{cam.name}</span>
+                <span style={{ fontWeight: 700, color: '#0F172A', fontSize: '0.95rem' }}>{cam.name}</span>
                 <span style={{
                   fontSize: '0.75rem',
-                  padding: '4px 12px',
-                  borderRadius: '50px',
-                  background: cam.status === 'Online' ? 'rgba(76, 175, 80, 0.2)' : 'rgba(255, 152, 0, 0.2)',
-                  color: cam.status === 'Online' ? '#81C784' : '#FFB74D'
+                  fontWeight: 600,
+                  padding: '3px 10px',
+                  borderRadius: '9999px',
+                  background: cam.status === 'Online' ? 'rgba(83, 170, 75, 0.1)' : 'rgba(245, 158, 11, 0.1)',
+                  color: cam.status === 'Online' ? '#3F8638' : '#D97706',
+                  border: cam.status === 'Online' ? '1px solid rgba(83, 170, 75, 0.25)' : '1px solid rgba(245, 158, 11, 0.25)'
                 }}>{cam.status}</span>
               </div>
             </div>
           ))}
         </div>
-
-        <style>{`
-          @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-          }
-        `}</style>
-
-        <p style={{
-          marginTop: '32px',
-          textAlign: 'center',
-          fontSize: '0.85rem',
-          color: '#90CAF9'
-        }}>
-          <i className="fas fa-info-circle"></i> Simulasi tampilan CCTV - Integrasi API dapat dikembangkan
-        </p>
       </div>
     </section>
   )

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
@@ -2315,6 +2316,10 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
+      <Helmet>
+        <title>Panel Admin Dashboard | Desa Padakembang</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <aside className="admin-sidebar">
         <div className="admin-logo">
           <h2>Desa Padakembang</h2>

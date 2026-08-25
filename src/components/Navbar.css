@@ -1,51 +1,52 @@
 /* ============================================================
    src/components/Navbar.css
    NAVIGATION - DESA DIGITAL PADAKEMBANG
-   VERSION FINAL - RAPI & PADAT
+   STYLE: APPLE & GOOGLE CLEAN MINIMALIST
    ============================================================ */
 
 /* ============================================================
-   1. NAVBAR UTAMA (Sticky Biru)
+   1. NAVBAR CONTAINER (Frosted Glass Header)
    ============================================================ */
 .navbar {
-  background: linear-gradient(135deg, #0D47A1, #1565C0);
-  padding: 12px 0;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 30px rgba(13, 71, 161, 0.4);
-  border-bottom: 2px solid #42A5F5;
+  border-bottom: 1px solid rgba(205, 206, 234, 0.45);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
 }
 
-/* ============================================================
-   2. CONTAINER (Logo Kiri, Menu Kanan Full)
-   ============================================================ */
 .navbar__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  max-width: 100%;
+  padding: 0;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
 /* ============================================================
-   3. LOGO & BRAND
+   2. LOGO & BRAND
    ============================================================ */
 .navbar__brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: #FFFFFF;
-  font-size: 1.2rem;
+  gap: 10px;
+  color: #0F172A;
+  font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
   flex-shrink: 0;
+  letter-spacing: -0.02em;
 }
 
 .navbar__logo {
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   object-fit: contain;
 }
@@ -54,143 +55,150 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  color: #0F172A;
 }
 
 .navbar__brand-highlight {
-  font-weight: 600;
-  color: #64B5F6;
+  font-weight: 700;
+  color: #272FA2;
 }
 
 /* ============================================================
-   4. TOMBOL HAMBURGER (Mobile)
+   3. HAMBURGER TOGGLE (Mobile)
    ============================================================ */
 .navbar__toggle {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   cursor: pointer;
   background: none;
   border: none;
-  padding: 4px;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .navbar__toggle span {
   display: block;
-  width: 28px;
-  height: 3px;
-  background: #E3F2FD;
-  border-radius: 4px;
+  width: 22px;
+  height: 2px;
+  background: #334155;
+  border-radius: 2px;
+  transition: all 0.25s ease;
 }
 
 /* ============================================================
-   5. MENU UTAMA (Desktop)
+   4. NAVIGATION MENU (Desktop)
    ============================================================ */
 .navbar__menu {
   display: flex;
-  gap: 6px; /* ★ Jarak antar menu diperkecil jadi 6px agar padat */
+  gap: 4px;
   list-style: none;
   align-items: center;
   margin: 0;
   padding: 0;
-  font-size: 0.8rem; /* ★ Font diperkecil agar muat banyak menu */
+  font-size: 0.84rem;
   font-weight: 500;
 }
 
 /* ============================================================
-   6. LINK BIASA
+   5. NAVIGATION LINKS
    ============================================================ */
 .navbar__link {
-  color: #E3F2FD;
+  color: #475569;
   text-decoration: none;
-  padding: 6px 12px; /* ★ Padding diperkecil */
-  border-radius: 50px;
-  transition: all 0.3s ease;
+  padding: 7px 12px;
+  border-radius: 15px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: inline-block;
 }
 
 .navbar__link:hover {
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.1);
+  color: #272FA2;
+  background: rgba(205, 206, 234, 0.25);
 }
 
-/* Link yang Sedang Aktif (Beranda, dll) */
 .navbar__link--active {
-  background: #42A5F5;
-  color: #FFFFFF;
-  padding: 6px 14px;
-  border-radius: 50px;
+  background: rgba(39, 47, 162, 0.08);
+  color: #272FA2;
+  font-weight: 600;
 }
 
 /* ============================================================
-   7. TOMBOL AJUKAN LAYANAN (CTA)
+   6. CTA BUTTON ("Ajukan Layanan")
    ============================================================ */
 .navbar__cta {
-  background: #42A5F5;
-  color: #FFFFFF;
-  padding: 6px 16px;
-  border-radius: 50px;
+  background: #272FA2;
+  color: #FFFFFF !important;
+  padding: 7px 16px;
+  border-radius: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s;
-  margin-left: 4px; /* Jarak sedikit dari menu sebelumnya */
-  font-size: 0.8rem;
-  box-shadow: 0 4px 15px rgba(66, 165, 245, 0.3);
+  transition: all 0.2s ease;
+  margin-left: 6px;
+  font-size: 0.82rem;
+  box-shadow: 0 2px 8px rgba(39, 47, 162, 0.2);
+  display: inline-block;
 }
 
 .navbar__cta:hover {
-  transform: translateY(0px);
-  box-shadow: 0 6px 20px rgba(66, 165, 245, 0.5);
+  background: #1C2278;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(39, 47, 162, 0.3);
 }
 
 /* ============================================================
-   8. TOMBOL LOGIN ADMIN (Baru)
+   7. LOGIN ADMIN BUTTON
    ============================================================ */
 .navbar__login {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #E3F2FD;
+  background: transparent;
+  color: #475569;
   padding: 6px 14px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  border: 1px solid #E2E8F0;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  transition: 0.3s;
+  transition: all 0.2s ease;
   margin-left: 4px;
 }
 
 .navbar__login:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #42A5F5;
-  color: #FFFFFF;
-}
-
-.navbar__login .icon {
-  font-size: 0.9rem;
+  background: #F1F5F9;
+  border-color: #CDCEEA;
+  color: #272FA2;
 }
 
 /* ============================================================
-   9. RESPONSIVE (MOBILE)
+   8. RESPONSIVE MOBILE
    ============================================================ */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .navbar__toggle {
-    display: flex !important;
+    display: flex;
   }
   
   .navbar__menu {
     display: none;
-    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
-    padding: 16px 0;
-    gap: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 10px;
-    font-size: 0.9rem;
+    padding: 16px 20px 24px;
+    gap: 8px;
+    border-bottom: 1px solid rgba(205, 206, 234, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   }
   
   .navbar__menu--open {
-    display: flex !important;
+    display: flex;
   }
 
   .navbar__menu li {
@@ -199,9 +207,9 @@
   }
   
   .navbar__link, .navbar__cta, .navbar__login {
-    display: inline-block;
-    width: auto;
-    margin: 0 auto;
-    padding: 8px 20px;
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    margin: 0;
   }
 }

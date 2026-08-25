@@ -1,8 +1,64 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
+import {
+  FaShieldAlt,
+  FaLandmark,
+  FaGraduationCap,
+  FaHospital,
+  FaMosque,
+  FaStore,
+  FaVideo,
+  FaLightbulb,
+  FaExpand
+} from 'react-icons/fa'
 import Hero from '../Hero'
 import './Beranda.css'
 
 const Beranda = () => {
+  // Marker titik fasilitas yang sama persis dengan /peta (petawilayah)
+  const previewMarkers = [
+    // Sukamanah
+    { id: 1, type: "pendidikan", icon: <FaGraduationCap />, x: 22, y: 27, label: "SDN Sukamanah" },
+    { id: 2, type: "umum", icon: <FaLandmark />, x: 29, y: 29, label: "Balai Desa" },
+    { id: 3, type: "ibadah", icon: <FaMosque />, x: 36, y: 24, label: "Masjid Al-Hikmah" },
+
+    // Cikadu
+    { id: 4, type: "kesehatan", icon: <FaHospital />, x: 17, y: 47, label: "Puskesmas Cikadu" },
+    { id: 5, type: "umum", icon: <FaLandmark />, x: 21, y: 52, label: "Kantor Kecamatan" },
+    { id: 6, type: "cctv", icon: <FaVideo />, x: 25, y: 50, label: "CCTV Jl. Raya" },
+    { id: 7, type: "cctv", icon: <FaVideo />, x: 18, y: 59, label: "CCTV Simpang" },
+
+    // Padamenak
+    { id: 8, type: "umum", icon: <FaLandmark />, x: 42, y: 35, label: "GOR Padamenak" },
+    { id: 9, type: "umum", icon: <FaLandmark />, x: 42, y: 55, label: "Pasar Desa" },
+    { id: 10, type: "pendidikan", icon: <FaGraduationCap />, x: 48, y: 49, label: "SMPN 1 Padakembang" },
+    { id: 11, type: "cctv", icon: <FaVideo />, x: 46, y: 60, label: "CCTV Pasar" },
+    { id: 12, type: "ibadah", icon: <FaMosque />, x: 50, y: 66, label: "Masjid Agung" },
+
+    // Margaluyu
+    { id: 13, type: "umum", icon: <FaLandmark />, x: 60, y: 32, label: "Balai Pertemuan" },
+    { id: 14, type: "kesehatan", icon: <FaHospital />, x: 66, y: 31, label: "Klinik Pratama" },
+    { id: 15, type: "cctv", icon: <FaVideo />, x: 64, y: 38, label: "CCTV Perempatan" },
+    { id: 16, type: "umkm", icon: <FaStore />, x: 74, y: 31, label: "Sentra Kerajinan" },
+
+    // Sukaraja
+    { id: 17, type: "ibadah", icon: <FaMosque />, x: 73, y: 45, label: "Musholla Nurul Iman" },
+    { id: 18, type: "pendidikan", icon: <FaGraduationCap />, x: 76, y: 48, label: "MI Sukaraja" },
+    { id: 19, type: "umum", icon: <FaLandmark />, x: 67, y: 53, label: "Lapangan Sepakbola" },
+    { id: 20, type: "cctv", icon: <FaVideo />, x: 74, y: 54, label: "CCTV Lapangan" },
+
+    // Babakan
+    { id: 21, type: "umum", icon: <FaLandmark />, x: 30, y: 73, label: "Pos Ronda Babakan" },
+    { id: 22, type: "ibadah", icon: <FaMosque />, x: 38, y: 75, label: "Masjid Babakan" },
+    { id: 23, type: "kesehatan", icon: <FaHospital />, x: 26, y: 81, label: "Posyandu Mawar" },
+    { id: 24, type: "pju", icon: <FaLightbulb />, x: 46, y: 79, label: "PJU Jl. Babakan" },
+
+    // Pangkalan
+    { id: 25, type: "umkm", icon: <FaStore />, x: 55, y: 68, label: "Koperasi Desa" },
+    { id: 26, type: "pendidikan", icon: <FaGraduationCap />, x: 62, y: 70, label: "PAUD Melati" },
+    { id: 27, type: "pju", icon: <FaLightbulb />, x: 72, y: 66, label: "PJU Jl. Pangkalan" }
+  ]
   // Data dummy untuk berita
   const beritaList = [
     {
@@ -37,7 +93,7 @@ const Beranda = () => {
       owner: 'Bapak Suharto',
       location: 'Dusun 1',
       description: 'Produk kerajinan bambu berkualitas tinggi',
-      icon: 'fa-bamboo'
+      icon: 'fa-tree'
     },
     {
       id: 2,
@@ -73,7 +129,7 @@ const Beranda = () => {
       owner: 'Bapak Ahmad',
       location: 'Dusun 2',
       description: 'Madu murni dari hutan desa Padakembang',
-      icon: 'fa-jar-honey'
+      icon: 'fa-hexagon'
     },
     {
       id: 6,
@@ -88,34 +144,19 @@ const Beranda = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Beranda | Portal Resmi Desa Padakembang</title>
+        <meta name="description" content="Website Resmi Pemerintah Desa Padakembang, Kecamatan Padakembang, Kabupaten Tasikmalaya. Portal informasi publik, pemetaan wilayah, dan layanan digital desa." />
+        <meta name="keywords" content="Desa Padakembang, Padakembang Tasikmalaya, Desa Mandiri Energi, Layanan Publik Desa, UMKM Padakembang, Peta Wilayah Desa" />
+        <meta property="og:title" content="Desa Padakembang - Menuju Desa Mandiri Energi & Digital" />
+        <meta property="og:description" content="Portal Resmi Desa Padakembang dengan layanan publik terpadu, pemetaan digital, dan keterbukaan informasi." />
+      </Helmet>
       <Hero />
-      
-      {/* ========================================== */}
-      {/* SECTION 1: SELAMAT DATANG */}
-      {/* ========================================== */}
-      <section className="welcome-section">
-        <div className="welcome-overlay"></div>
-        <div className="container welcome-content">
-          <h2 className="welcome-title">
-            Selamat Datang di <span className="highlight-text">Desa Padakembang</span>
-          </h2>
-          <p className="welcome-subtitle">
-            Desa Energi Mandiri yang mengelola potensi lokal untuk kemandirian energi 
-            dan kesejahteraan masyarakat.
-          </p>
-          <div className="welcome-buttons">
-            <a href="/energi" className="btn btn-primary">Lihat Program Energi</a>
-            <a href="/layanan" className="btn btn-secondary">Layanan Digital</a>
-          </div>
-        </div>
-      </section>
-
       {/* ========================================== */}
       {/* SECTION 2: CAPAIAN DESA */}
       {/* ========================================== */}
       <section className="achievement-section">
-        <div className="achievement-overlay"></div>
-        <div className="container achievement-content">
+        <div className="container">
           <h3 className="section-title">
             Capaian <span className="highlight-text">Desa Padakembang</span>
           </h3>
@@ -150,7 +191,7 @@ const Beranda = () => {
             <h3 className="section-title">
               <span className="highlight-text">Berita</span> & Informasi Terkini
             </h3>
-            <a href="/berita" className="view-all">Lihat Semua Berita →</a>
+            <Link to="/berita" className="view-all">Lihat Semua Berita →</Link>
           </div>
 
           <div className="news-grid">
@@ -163,9 +204,9 @@ const Beranda = () => {
                   <span className="news-date">
                     <i className="fas fa-calendar-alt"></i> {berita.date}
                   </span>
-                 <a href="/berita" className="news-readmore">
-  Baca →
-</a>
+                  <Link to="/berita" className="news-readmore">
+                    Baca →
+                  </Link>
                 </div>
               </div>
             ))}
@@ -174,133 +215,194 @@ const Beranda = () => {
       </section>
 
       {/* ========================================== */}
-      {/* SECTION 4: PETA DESA */}
+      {/* SECTION 4: PETA WILAYAH DESA */}
       {/* ========================================== */}
-      <section className="map-section">
+      <section className="b-map-section" id="peta-desa">
         <div className="container">
-          <div className="map-wrapper">
-            <div className="map-info">
-              <h3 className="section-title">
-                Peta <span className="highlight-text">Desa Padakembang</span>
+          <div className="b-map-wrapper">
+            
+            {/* Kolom Kiri: Profil & Informasi Geografis */}
+            <div className="b-map-info">
+
+              <h3 className="b-map-title">
+                Peta Wilayah <span className="highlight-text">Desa Padakembang</span>
               </h3>
-              <p className="map-description">
+
+              <p className="b-map-description">
                 Desa Padakembang terletak di Kecamatan Padakembang, Kabupaten Tasikmalaya, 
-                Provinsi Jawa Barat dengan luas wilayah sekitar 520 hektar.
+                Provinsi Jawa Barat dengan luas wilayah sekitar <strong>520 hektar</strong> yang 
+                terbagi menjadi wilayah administratif terintegrasi.
               </p>
-              <div className="map-details">
-                <div className="map-detail-item">
-                  <i className="fas fa-map-marker-alt"></i>
-                  <div>
+
+              {/* Profil Data Geografis */}
+              <div className="b-map-details">
+                <div className="b-map-detail-item">
+                  <div className="b-map-detail-icon">
+                    <i className="fas fa-map-pin"></i>
+                  </div>
+                  <div className="b-map-detail-content">
                     <strong>Kecamatan</strong>
                     <span>Padakembang</span>
                   </div>
                 </div>
-                <div className="map-detail-item">
-                  <i className="fas fa-city"></i>
-                  <div>
+
+                <div className="b-map-detail-item">
+                  <div className="b-map-detail-icon">
+                    <i className="fas fa-building-columns"></i>
+                  </div>
+                  <div className="b-map-detail-content">
                     <strong>Kabupaten</strong>
                     <span>Tasikmalaya</span>
                   </div>
                 </div>
-                <div className="map-detail-item">
-                  <i className="fas fa-globe-asia"></i>
-                  <div>
+
+                <div className="b-map-detail-item">
+                  <div className="b-map-detail-icon">
+                    <i className="fas fa-earth-asia"></i>
+                  </div>
+                  <div className="b-map-detail-content">
                     <strong>Provinsi</strong>
                     <span>Jawa Barat</span>
                   </div>
                 </div>
-                <div className="map-detail-item">
-                  <i className="fas fa-expand-arrows-alt"></i>
-                  <div>
+
+                <div className="b-map-detail-item">
+                  <div className="b-map-detail-icon">
+                    <i className="fas fa-chart-area"></i>
+                  </div>
+                  <div className="b-map-detail-content">
                     <strong>Luas Wilayah</strong>
                     <span>520 Ha</span>
                   </div>
                 </div>
               </div>
-              <a href="/peta" className="btn btn-map">Lihat Peta Lengkap</a>
+
+              {/* Tombol Aksi */}
+              <div className="b-map-cta-group">
+                <Link to="/peta" className="b-btn-map">
+                  <span>Lihat Peta Lengkap & Interaktif</span>
+                  <i className="fas fa-arrow-right"></i>
+                </Link>
+                <div className="b-map-cta-note">
+                  <FaShieldAlt style={{ color: '#10b981' }} />
+                  <span>Terintegrasi 27 Titik Fasilitas & Pemantauan CCTV</span>
+                </div>
+              </div>
             </div>
-          <div className="map-display">
-  <div className="digital-map">
 
-    {/* Header Map */}
-    <div className="map-topbar">
-      <span>📍 PETA DIGITAL</span>
+            {/* Kolom Kanan: Tampilan Peta yang Sama dengan /peta */}
+            <div className="b-map-display">
+              <div className="b-map-canvas-container">
 
-      <div className="map-actions">
-        <i className="fas fa-location-arrow"></i>
-        <i className="fas fa-layer-group"></i>
-        <i className="fas fa-expand"></i>
-      </div>
-    </div>
+                {/* Header Map */}
+                <div className="b-map-header">
+                  <div className="b-map-header-left">
+                    <span className="b-map-badge-tag"><FaShieldAlt /> Interaktif</span>
+                    <span className="b-map-coord">7°08'27.12" S · 108°12'45.89" E</span>
+                  </div>
+                  <div className="b-map-header-right">
+                    <Link to="/peta" className="b-map-action-btn" title="Buka Layar Penuh">
+                      <FaExpand />
+                    </Link>
+                  </div>
+                </div>
 
-    {/* Area Peta */}
-    <div className="map-area">
+                {/* Compass */}
+                <div className="b-compass">
+                  <span className="b-compass-n">U</span>
+                  <span className="b-compass-e">T</span>
+                  <span className="b-compass-s">S</span>
+                  <span className="b-compass-w">B</span>
+                  <div className="b-compass-star">✦</div>
+                </div>
 
-      {/* Wilayah */}
-      <div className="zone zone-1"></div>
-      <div className="zone zone-2"></div>
-      <div className="zone zone-3"></div>
-      <div className="zone zone-4"></div>
-      <div className="zone zone-5"></div>
-      <div className="zone zone-6"></div>
+                {/* Sungai / River */}
+                <div className="b-river b-river-one"></div>
+                <div className="b-river b-river-two"></div>
 
-      {/* Titik Lokasi */}
-      <div className="map-pin pin1">🏫</div>
-      <div className="map-pin pin2">🏥</div>
-      <div className="map-pin pin3">🕌</div>
-      <div className="map-pin pin4">🏪</div>
-      <div className="map-pin pin5">🎥</div>
-      <div className="map-pin pin6">⚡</div>
+                {/* Batas Wilayah Desa */}
+                <div className="b-desa-boundary"></div>
 
-      {/* Label Jalan */}
-      <div className="road road1">Jl. Raya Padakembang</div>
-      <div className="road road2">Jl. Sukamanah</div>
-      <div className="road road3">Jl. Pasar Lama</div>
+                {/* Desa Tetangga (Neighbor Labels) */}
+                <span className="b-neighbor b-neighbor-top">Desa Sukamulya</span>
+                <span className="b-neighbor b-neighbor-left">Desa Padawaras</span>
+                <span className="b-neighbor b-neighbor-right">Desa Tanjungjaya</span>
+                <span className="b-neighbor b-neighbor-bottom-left">Desa Cipatujah</span>
+                <span className="b-neighbor b-neighbor-bottom">Desa Padamukti</span>
+                <span className="b-neighbor b-neighbor-bottom-right">Desa Sukahurip</span>
 
-      {/* Garis Jalan */}
-      <span className="line l1"></span>
-      <span className="line l2"></span>
-      <span className="line l3"></span>
+                {/* Wilayah / Dusun (Polygonal Areas) */}
+                <div className="b-village-area b-area-sukamanah"><span>Kp. Sukamanah</span></div>
+                <div className="b-village-area b-area-margaluyu"><span>Kp. Margaluyu</span></div>
+                <div className="b-village-area b-area-cikadu"><span>Kp. Cikadu</span></div>
+                <div className="b-village-area b-area-padamenak"><span>Kp. Padamenak</span></div>
+                <div className="b-village-area b-area-sukaraja"><span>Kp. Sukaraja</span></div>
+                <div className="b-village-area b-area-babakan"><span>Kp. Babakan</span></div>
+                <div className="b-village-area b-area-pangkalan"><span>Kp. Pangkalan</span></div>
 
-      {/* Legenda */}
-      <div className="legend-box">
-        <h5>Legenda</h5>
+                {/* Garis Jalan */}
+                <div className="b-map-road b-map-road-1"></div>
+                <div className="b-map-road b-map-road-2"></div>
+                <div className="b-map-road b-map-road-3"></div>
+                <div className="b-map-road b-map-road-4"></div>
+                <div className="b-map-road b-map-road-5"></div>
+                <div className="b-map-road b-map-road-6"></div>
 
-        <p>🏫 Fasilitas Umum</p>
-        <p>🏥 Kesehatan</p>
-        <p>🕌 Tempat Ibadah</p>
-        <p>🏪 UMKM</p>
-        <p>🎥 CCTV</p>
-        <p>⚡ Energi</p>
-      </div>
+                {/* Label Jalan */}
+                <div className="b-road-pill b-road-pill-1"><span>Jl. Raya Padakembang</span></div>
+                <div className="b-road-pill b-road-pill-2"><span>Jl. Pasar Lama</span></div>
+                <div className="b-road-pill b-road-pill-3"><span>Jl. Kesehatan</span></div>
+                <div className="b-road-pill b-road-pill-4"><span>Jl. Sukamanah</span></div>
 
-    </div>
+                {/* Titik Lokasi Fasilitas / Markers */}
+                {previewMarkers.map((marker) => (
+                  <div
+                    key={marker.id}
+                    className={`b-map-pin-marker b-marker-${marker.type}`}
+                    style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
+                    title={marker.label}
+                  >
+                    {marker.icon}
+                    <span className="b-marker-popup">{marker.label}</span>
+                  </div>
+                ))}
 
-    {/* Statistik */}
-    <div className="map-bottom">
-      <div>
-        <strong>6</strong>
-        <span>Wilayah</span>
-      </div>
+                {/* Legenda Peta */}
+                <div className="b-map-legend-card">
+                  <h4>📋 Legenda</h4>
+                  <div className="b-legend-row">
+                    <span className="b-leg-line b-line-boundary"></span>
+                    <span>Batas Wilayah</span>
+                  </div>
+                  <div className="b-legend-row">
+                    <span className="b-leg-line b-line-main-road"></span>
+                    <span>Jalan Utama</span>
+                  </div>
+                  <div className="b-legend-row">
+                    <span className="b-leg-line b-line-small-road"></span>
+                    <span>Jalan Desa</span>
+                  </div>
+                  <div className="b-legend-row">
+                    <span className="b-leg-line b-line-river"></span>
+                    <span>Sungai</span>
+                  </div>
+                </div>
 
-      <div>
-        <strong>27</strong>
-        <span>Fasilitas</span>
-      </div>
+                {/* Footer Statistik */}
+                <div className="b-map-preview-footer">
+                  <div><strong>6</strong><span>Wilayah</span></div>
+                  <div><strong>08</strong><span>RW</span></div>
+                  <div><strong>27</strong><span>Fasilitas</span></div>
+                  <div><strong>12</strong><span>CCTV</span></div>
+                  <div className="b-map-coords-info">
+                    <span>PADAKEMBANG</span>
+                    <small>TASIKMALAYA · JAWA BARAT</small>
+                  </div>
+                </div>
 
-      <div>
-        <strong>08</strong>
-        <span>RW</span>
-      </div>
+              </div>
+            </div>
 
-      <div>
-        <strong>12</strong>
-        <span>CCTV</span>
-      </div>
-    </div>
-
-  </div>
-</div>
           </div>
         </div>
       </section>
@@ -314,50 +416,50 @@ const Beranda = () => {
             <h3 className="section-title">
               <span className="highlight-text">UMKM</span> Desa Padakembang
             </h3>
-            <a href="/umkm" className="view-all">Lihat Semua UMKM →</a>
+            <Link to="/umkm" className="view-all">Lihat Semua UMKM →</Link>
           </div>
 
-     <div className="umkm-grid">
-  {umkmList.map((umkm) => (
-    <a
-      href="/umkm"
-      className="umkm-card"
-      key={umkm.id}
-    >
-      <div className="umkm-icon">
-        <i className={`fas ${umkm.icon || 'fa-store'}`}></i>
-      </div>
+          <div className="umkm-grid">
+            {umkmList.map((umkm) => (
+              <Link
+                to="/umkm"
+                className="umkm-card"
+                key={umkm.id}
+              >
+                <div className="umkm-icon">
+                  <i className={`fas ${umkm.icon || 'fa-store'}`}></i>
+                </div>
 
-      <div className="umkm-info">
-        <h4 className="umkm-name">{umkm.name}</h4>
+                <div className="umkm-info">
+                  <h4 className="umkm-name">{umkm.name}</h4>
 
-        <span className="umkm-category">
-          {umkm.category}
-        </span>
+                  <span className="umkm-category">
+                    {umkm.category}
+                  </span>
 
-        <p className="umkm-description">
-          {umkm.description}
-        </p>
+                  <p className="umkm-description">
+                    {umkm.description}
+                  </p>
 
-        <div className="umkm-meta">
-          <span>
-            <i className="fas fa-user"></i> {umkm.owner}
-          </span>
+                  <div className="umkm-meta">
+                    <span>
+                      <i className="fas fa-user"></i> {umkm.owner}
+                    </span>
 
-          <span>
-            <i className="fas fa-location-dot"></i> {umkm.location}
-          </span>
+                    <span>
+                      <i className="fas fa-location-dot"></i> {umkm.location}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="umkm-link">
+                  <i className="fas fa-arrow-right"></i>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-
-      <div className="umkm-link">
-        <i className="fas fa-arrow-right"></i>
-      </div>
-    </a>
-  ))}
-</div>
- </div>
-</section>
+      </section>
     </>
   )
 }

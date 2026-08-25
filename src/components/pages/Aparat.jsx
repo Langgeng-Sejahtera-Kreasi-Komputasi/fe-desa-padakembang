@@ -1,46 +1,45 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const aparat = [
   {
-    name: 'jenal muttaqin',
+    name: 'Jenal Muttaqin',
     jabatan: 'Kepala Desa',
     photo: '/Images/kepala-desa.jpg', 
   },
   {
-    name: 'dedi mulyadi',
-    jabatan: 'Wakil Kepala Desa',
+    name: 'Dedi Mulyadi',
+    jabatan: 'Sekretaris Desa',
     photo: '/Images/wakil-desa.jpg'
   },
   {
-    name: ' prabowo well',
-    jabatan: 'Sekretaris Desa',
+    name: 'Prabowo Subianto',
+    jabatan: 'Kasi Pemerintahan',
     photo: '/Images/sekretaris.jpg'
   },
   {
-    name: 'Teddy',
-    jabatan: 'Bendahara',
+    name: 'Teddy Indra',
+    jabatan: 'Kaur Keuangan / Bendahara',
     photo: '/Images/bendahara.jpg'
   },
   {
     name: 'Agus Salim',
-    jabatan: 'Wakil Bendahara',
+    jabatan: 'Kasi Kesejahteraan',
     photo: '/Images/kasi-pemerintahan.jpg'
   },
   {
-    name: 'Suuhendar',
-    jabatan: 'Staff desa',
+    name: 'Suhendar',
+    jabatan: 'Kasi Pelayanan',
     photo: '/Images/kasi-kesejahteraan.jpg'
   },
-
-   {
-    name: 'anies',
-    jabatan: 'Staff desa',
+  {
+    name: 'Anies Rasyid',
+    jabatan: 'Kaur Perencanaan',
     photo: '/Images/staff.jpg'
   },
-
-   {
-    name: 'ganjar',
-    jabatan: 'Staff desa',
+  {
+    name: 'Ganjar Pranowo',
+    jabatan: 'Kaur Umum & Tata Usaha',
     photo: '/Images/Staffdesa.jpg'
   }
 ]
@@ -48,94 +47,103 @@ const aparat = [
 const Aparat = () => {
   return (
     <section style={{
-      padding: '60px 0',
-      background: 'linear-gradient(135deg, #1565C0, #0D47A1)',
-      borderBottom: '3px solid #42A5F5'
+      padding: '80px 0',
+      background: '#F8FAFC',
+      minHeight: '100vh',
+      color: '#334155'
     }} id="aparat">
-      <div className="container text-center">
-        <h2 className="section-title" style={{ color: '#E3F2FD', fontSize: '2.5rem', marginBottom: '10px' }}>
-          Aparat <span className="highlight" style={{ background: '#42A5F5', color: '#FFFFFF', padding: '0 12px', borderRadius: '8px' }}>Pemerintahan</span>
-        </h2>
-        <p className="section-subtitle" style={{ color: '#90CAF9', fontSize: '1.1rem', marginBottom: '40px' }}>
-          Struktur organisasi Desa Padakembang
-        </p>
+      <Helmet>
+        <title>Aparatur Pemerintah Desa | Desa Padakembang</title>
+        <meta name="description" content="Struktur organisasi dan susunan pamong desa, perangkat desa, serta jajaran aparatur Pemerintah Desa Padakembang." />
+        <meta name="keywords" content="Aparatur Desa Padakembang, Kepala Desa Padakembang, Pamong Desa Padakembang, Perangkat Desa" />
+      </Helmet>
+      <div className="container">
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <span style={{
+            display: 'inline-block',
+            background: 'rgba(39, 47, 162, 0.08)',
+            color: '#272FA2',
+            fontSize: '0.82rem',
+            fontWeight: 600,
+            padding: '4px 14px',
+            borderRadius: '9999px',
+            marginBottom: '12px',
+            border: '1px solid rgba(39, 47, 162, 0.2)'
+          }}>
+            Struktur Organisasi
+          </span>
+          <h1 style={{
+            fontSize: '2.5rem',
+            fontWeight: 800,
+            color: '#0F172A',
+            marginBottom: '10px',
+            letterSpacing: '-0.02em'
+          }}>
+            Aparatur <span style={{ color: '#272FA2' }}>Pemerintah Desa</span>
+          </h1>
+          <p style={{
+            fontSize: '1.05rem',
+            color: '#64748B',
+            maxWidth: '600px',
+            margin: '0 auto',
+            lineHeight: 1.6
+          }}>
+            Pamong dan perangkat desa yang berdedikasi melayani seluruh kebutuhan masyarakat Desa Padakembang.
+          </p>
+        </div>
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '30px',
-          maxWidth: '1200px',
-          margin: '0 auto'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: '24px'
         }}>
           {aparat.map((person, index) => (
             <div key={index} style={{
               textAlign: 'center',
-              background: 'rgba(255,255,255,0.05)',
-              backdropFilter: 'blur(10px)',
-              padding: '32px 24px',
-              borderRadius: '16px',
-              boxShadow: '0 8px 30px rgba(0,0,0,0.1)',
-              border: '1px solid rgba(100, 181, 246, 0.15)',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              cursor: 'default'
+              background: '#FFFFFF',
+              padding: '32px 20px',
+              borderRadius: '18px',
+              border: '1px solid #E2E8F0',
+              boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.04)',
+              transition: 'all 0.25s ease'
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-8px)';
-              e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.3)';
+              e.currentTarget.style.transform = 'translateY(-3px)';
+              e.currentTarget.style.borderColor = '#CDCEEA';
+              e.currentTarget.style.boxShadow = '0 12px 28px -4px rgba(39, 47, 162, 0.08)';
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.1)';
+              e.currentTarget.style.borderColor = '#E2E8F0';
+              e.currentTarget.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.04)';
             }}
             >
-              <div style={{ position: 'relative', display: 'inline-block' }}>
-                <img
-                  src={person.photo}
-                  alt={person.name}
-                  style={{
-                    width: '100px',
-                    height: '100px',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                    margin: '0 auto 16px',
-                    display: 'block',
-                    border: '3px solid #64B5F6',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
-                  }}
-                  onError={(e) => {
-                    // Jika gambar gagal load, tampilkan inisial
-                    const parent = e.target.parentElement;
-                    e.target.style.display = 'none';
-                    
-                    if (!parent.querySelector('.initials-fallback')) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'initials-fallback';
-                      fallback.style.cssText = `
-                        width: 100px;
-                        height: 100px;
-                        border-radius: 50%;
-                        background: linear-gradient(135deg, #42A5F5, #0D47A1);
-                        margin: 0 auto 16px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 2.5rem;
-                        color: #E3F2FD;
-                        font-weight: 700;
-                        border: 3px solid #64B5F6;
-                      `;
-                      fallback.innerText = person.name.charAt(0);
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
+              <div style={{
+                width: '88px',
+                height: '88px',
+                borderRadius: '50%',
+                background: 'rgba(39, 47, 162, 0.08)',
+                color: '#272FA2',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.8rem',
+                fontWeight: 700,
+                margin: '0 auto 16px',
+                border: '2px solid rgba(205, 206, 234, 0.8)'
+              }}>
+                {person.name.charAt(0)}
               </div>
-              <h4 style={{ color: '#E3F2FD', marginBottom: '4px', fontSize: '1.1rem' }}>{person.name}</h4>
+              <h4 style={{ color: '#0F172A', marginBottom: '4px', fontSize: '1.1rem', fontWeight: 700 }}>
+                {person.name}
+              </h4>
               <p style={{
-                color: '#64B5F6',
-                fontWeight: 600,
-                fontSize: '0.9rem'
-              }}>{person.jabatan}</p>
+                color: '#64748B',
+                fontWeight: 500,
+                fontSize: '0.85rem'
+              }}>
+                {person.jabatan}
+              </p>
             </div>
           ))}
         </div>

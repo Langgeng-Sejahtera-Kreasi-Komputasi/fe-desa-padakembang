@@ -1,123 +1,136 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
     <section style={{
-      // ★ PERUBAHAN UTAMA: Mengambil gambar dari folder public/Images ★
-      // Ganti 'nama-file-foto-anda.jpg' dengan nama file gambar Anda yang ada di folder public/Images
-      backgroundImage: 'url("/Images/images (8).jpg")', 
-      
+      backgroundImage: 'url("/Images/images (8).jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      
-      padding: '80px 0 60px',
+      padding: '100px 0 80px',
       position: 'relative',
       overflow: 'hidden',
-      borderBottom: '3px solid #64B5F6'
     }} id="tentang">
       
-      {/* ★ LAPISAN OVERLAY GELAP (Agar teks tetap terbaca di atas gambar) ★ */}
+      {/* Sleek Gradient Overlay */}
       <div style={{
         position: 'absolute',
         top: 0, left: 0, right: 0, bottom: 0,
-        background: 'linear-gradient(to right, rgba(10, 37, 64, 0.85), rgba(13, 71, 161, 0.6))',
+        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(39, 47, 162, 0.75) 100%)',
         zIndex: 1
       }}></div>
 
       <div className="container" style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '40px',
+        gridTemplateColumns: '1.2fr 0.8fr',
+        gap: '48px',
         alignItems: 'center',
         position: 'relative',
-        zIndex: 2 // Konten di atas overlay
+        zIndex: 2
       }}>
         <div>
+
           <h1 style={{
-            fontSize: '3.2rem',
+            fontSize: '3.4rem',
             fontWeight: 800,
-            color: '#E3F2FD',
-            lineHeight: 1.2,
-            marginBottom: '16px',
-            textShadow: '0 2px 20px rgba(0,0,0,0.5)' // Bayangan teks agar lebih tajam
+            color: '#FFFFFF',
+            lineHeight: 1.15,
+            marginBottom: '18px',
+            letterSpacing: '-0.03em'
           }}>
-            Desa <span style={{
-              color: '#64B5F6',
-              background: 'rgba(13, 71, 161, 0.5)',
-              padding: '0 16px',
-              borderRadius: '12px',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(100, 181, 246, 0.3)'
-            }}>Energi Mandiri</span><br />
-            Padakembang
+            Desa Energi Mandiri <br />
+            <span style={{
+              color: '#CDCEEA',
+              fontWeight: 700
+            }}>Padakembang</span>
           </h1>
+
           <p style={{
-            fontSize: '1.2rem',
-            color: '#90CAF9',
-            marginBottom: '24px',
-            maxWidth: '500px',
-            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
+            fontSize: '1.15rem',
+            color: 'rgba(241, 245, 249, 0.88)',
+            marginBottom: '32px',
+            maxWidth: '520px',
+            lineHeight: 1.6,
+            fontWeight: 400
           }}>
-            Membangun kemandirian energi berbasis potensi lokal. <br />
-            <span style={{ color: '#64B5F6', fontWeight: 600 }}>Terangi desa, hijaukan bumi.</span>
+            Mewujudkan kemandirian energi dan pelayanan publik digital yang cepat, transparan, dan terintegrasi bagi seluruh warga.
           </p>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <a href="/layanan" className="btn btn-primary">Jelajahi Layanan</a>
-            <a href="/energi" className="btn btn-secondary">Program Energi</a>
+
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+            <Link to="/layanan" className="btn btn-primary" style={{
+              backgroundColor: '#FFFFFF',
+              color: '#272FA2',
+              fontWeight: 700,
+              padding: '13px 30px'
+            }}>
+              Jelajahi Layanan
+            </Link>
+            <Link to="/energi" className="btn" style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.12)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(205, 206, 234, 0.35)',
+              color: '#FFFFFF',
+              fontWeight: 600,
+              padding: '13px 26px'
+            }}>
+              Program Energi
+            </Link>
           </div>
         </div>
 
+        {/* Minimalist Stats Glass Box */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '20px',
-          background: 'rgba(255,255,255,0.10)',
+          gap: '16px',
+          background: 'rgba(255, 255, 255, 0.08)',
           backdropFilter: 'blur(20px)',
-          padding: '30px',
-          borderRadius: '16px',
-          boxShadow: '0 8px 40px rgba(0,0,0,0.2)',
-          border: '1px solid rgba(100, 181, 246, 0.2)'
+          WebkitBackdropFilter: 'blur(20px)',
+          padding: '32px 24px',
+          borderRadius: '24px',
+          boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.25)',
+          border: '1px solid rgba(205, 206, 234, 0.25)'
         }}>
           <div style={{ textAlign: 'center' }}>
             <div style={{
               fontSize: '2.2rem',
               fontWeight: 800,
-              color: '#64B5F6'
-            }}>501<span style={{ color: '#90CAF9' }}>+</span></div>
-            <div style={{ fontSize: '0.9rem', color: '#BBDEFB', fontWeight: 500 }}>Penduduk</div>
+              color: '#FFFFFF',
+              letterSpacing: '-0.02em'
+            }}>501<span style={{ color: '#53AA4B' }}>+</span></div>
+            <div style={{ fontSize: '0.82rem', color: '#CDCEEA', fontWeight: 500, marginTop: '2px' }}>Penduduk</div>
+          </div>
+          <div style={{ textAlign: 'center', borderLeft: '1px solid rgba(205, 206, 234, 0.15)', borderRight: '1px solid rgba(205, 206, 234, 0.15)' }}>
+            <div style={{
+              fontSize: '2.2rem',
+              fontWeight: 800,
+              color: '#FFFFFF',
+              letterSpacing: '-0.02em'
+            }}>30<span style={{ color: '#53AA4B' }}>+</span></div>
+            <div style={{ fontSize: '0.82rem', color: '#CDCEEA', fontWeight: 500, marginTop: '2px' }}>UMKM Aktif</div>
           </div>
           <div style={{ textAlign: 'center' }}>
             <div style={{
               fontSize: '2.2rem',
               fontWeight: 800,
-              color: '#64B5F6'
-            }}>30<span style={{ color: '#90CAF9' }}>+</span></div>
-            <div style={{ fontSize: '0.9rem', color: '#BBDEFB', fontWeight: 500 }}> UMKM Aktif</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{
-              fontSize: '2.2rem',
-              fontWeight: 800,
-              color: '#64B5F6'
-            }}>90<span style={{ color: '#90CAF9' }}>%</span></div>
-            <div style={{ fontSize: '0.9rem', color: '#BBDEFB', fontWeight: 500 }}> kebahagian</div>
+              color: '#FFFFFF',
+              letterSpacing: '-0.02em'
+            }}>98<span style={{ color: '#53AA4B' }}>%</span></div>
+            <div style={{ fontSize: '0.82rem', color: '#CDCEEA', fontWeight: 500, marginTop: '2px' }}>Akses Energi</div>
           </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 992px) {
-          .container { grid-template-columns: 1fr !important; text-align: center; }
-          .hero-content p { margin: 0 auto 24px; }
+          .container { grid-template-columns: 1fr !important; gap: 36px; }
         }
         @media (max-width: 768px) {
-          h1 { font-size: 2.2rem !important; }
-          .hero-stats { grid-template-columns: 1fr 1fr !important; }
+          h1 { font-size: 2.4rem !important; }
         }
         @media (max-width: 480px) {
-          .hero-stats { grid-template-columns: 1fr !important; }
-          h1 { font-size: 1.8rem !important; }
+          h1 { font-size: 2rem !important; }
         }
       `}</style>
     </section>

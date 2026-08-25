@@ -1,182 +1,181 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Profil = () => {
   return (
     <section style={{
-      padding: '80px 20px',
-      background: 'linear-gradient(145deg, #0a192f, #0d47a1)', // Biru Tua ke Biru Dongker
+      padding: '80px 0',
+      background: '#F8FAFC',
       minHeight: '100vh',
-      color: '#ffffff',
-      fontFamily: "'Inter', Tahoma, Geneva, Verdana, sans-serif"
+      color: '#334155'
     }}>
+      <Helmet>
+        <title>Profil Desa | Desa Padakembang</title>
+        <meta name="description" content="Profil lengkap Desa Padakembang, Kecamatan Padakembang, Kabupaten Tasikmalaya. Sejarah desa, visi & misi, batas wilayah, dan potensi ekonomi unggulan." />
+        <meta name="keywords" content="Profil Desa Padakembang, Visi Misi Desa Padakembang, Sejarah Desa Padakembang, Potensi Desa Padakembang" />
+      </Helmet>
       
-      {/* --- CSS INTERNAL UNTUK TAMPILAN BIRU AQUA --- */}
       <style>{`
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        /* HEADER dengan warna Aqua */
         .header-title {
-          font-size: 2.8rem;
+          font-size: 2.5rem;
           font-weight: 700;
           text-align: center;
           margin-bottom: 10px;
-          letter-spacing: 1px;
-          background: linear-gradient(to right, #ffffff, #00b4d8); /* Gradasi Putih ke Aqua */
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          letter-spacing: -0.02em;
+          color: #0F172A;
         }
         .header-subtitle {
-          color: #90e0ef; /* Biru Aqua muda */
+          color: #64748B;
           text-align: center;
-          font-size: 1.1rem;
-          margin-bottom: 50px;
-          letter-spacing: 2px;
+          font-size: 1.05rem;
+          margin-bottom: 48px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
         }
 
-        /* WRAPPER GRID */
         .profil-wrapper {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 30px;
+          gap: 28px;
         }
 
-        /* KARTU GLASSMORPHISM (Transparan dengan garis Aqua) */
-        .glass-card {
-          background: rgba(255, 255, 255, 0.04);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+        .clean-profile-card {
+          background: #FFFFFF;
           padding: 28px;
-          border-radius: 20px;
-          border: 1px solid rgba(0, 180, 216, 0.15); /* Border Aqua transparan */
-          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-          transition: all 0.3s ease;
+          border-radius: 16px;
+          border: 1px solid #E2E8F0;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+          transition: all 0.25s ease;
           margin-bottom: 24px;
         }
-        .glass-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(0, 180, 216, 0.5); /* Border Aqua menyala saat hover */
-          box-shadow: 0 12px 40px 0 rgba(0, 180, 216, 0.15);
+        .clean-profile-card:hover {
+          transform: translateY(-2px);
+          border-color: #CDCEEA;
+          box-shadow: 0 10px 25px -4px rgba(39, 47, 162, 0.06);
         }
 
-        /* JUDUL KARTU (Warna Aqua) */
         .card-title {
-          font-size: 1.3rem;
-          color: #00b4d8; /* Biru Aqua cerah */
-          margin-bottom: 16px;
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: #272FA2;
+          margin-bottom: 18px;
           display: flex;
           align-items: center;
           gap: 10px;
+          letter-spacing: -0.01em;
+          padding-bottom: 12px;
+          border-bottom: 1px solid #F1F5F9;
         }
 
-        /* TEKS */
         .text-row {
-          color: #e0fbfc; /* Putih kebiruan */
-          line-height: 1.8;
+          color: #475569;
+          line-height: 1.7;
           margin-bottom: 8px;
-          font-size: 0.95rem;
+          font-size: 0.92rem;
         }
         .text-row strong {
-          color: #ffffff;
+          color: #0F172A;
           font-weight: 600;
         }
         .text-detail {
-          color: #98c1d9;
+          color: #94A3B8;
           font-size: 0.85rem;
         }
 
-        /* BATAS WILAYAH */
         .border-item {
           display: flex;
-          gap: 8px;
-          margin-bottom: 6px;
-          border-bottom: 1px solid rgba(0, 180, 216, 0.1);
-          padding-bottom: 6px;
+          gap: 12px;
+          margin-bottom: 10px;
+          border-bottom: 1px solid #F1F5F9;
+          padding-bottom: 8px;
+          font-size: 0.92rem;
         }
         .border-label {
-          color: #00b4d8; /* Label berwarna Aqua */
+          color: #272FA2;
           font-weight: 600;
-          min-width: 60px;
+          min-width: 65px;
         }
         .border-value {
-          color: #e0fbfc;
+          color: #475569;
         }
 
-        /* VISI MISI */
         .visi-box {
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
         .visi-box h4 {
-          color: #48cae4; /* Aqua yang lebih terang */
-          margin-bottom: 4px;
+          color: #0F172A;
+          font-size: 1rem;
+          font-weight: 700;
+          margin-bottom: 6px;
         }
         .misi-list {
           padding-left: 20px;
-          color: #e0fbfc;
-          line-height: 1.8;
+          color: #475569;
+          line-height: 1.7;
+          font-size: 0.92rem;
         }
         .misi-list li {
-          margin-bottom: 4px;
+          margin-bottom: 6px;
         }
 
-        /* STATISTIK (Kotak Data dengan warna Aqua) */
         .stat-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 12px;
-          margin-top: 12px;
+          gap: 16px;
+          margin-top: 16px;
         }
         .stat-box {
-          background: rgba(0, 180, 216, 0.08); /* Background Aqua transparan */
+          background: #F8FAFC;
           padding: 16px;
           border-radius: 12px;
-          border-left: 3px solid #00b4d8; /* Garis pinggir Aqua */
+          border-left: 3px solid #272FA2;
+          border-top: 1px solid #E2E8F0;
+          border-right: 1px solid #E2E8F0;
+          border-bottom: 1px solid #E2E8F0;
         }
         .stat-value {
           display: block;
-          font-size: 1.3rem;
-          font-weight: 700;
-          color: #48cae4; /* Angka berwarna Aqua cerah */
+          font-size: 1.35rem;
+          font-weight: 800;
+          color: #272FA2;
+          letter-spacing: -0.01em;
         }
         .stat-label {
-          color: #90e0ef;
-          font-size: 0.85rem;
+          color: #64748B;
+          font-size: 0.82rem;
           margin-top: 4px;
+          font-weight: 500;
         }
 
-        /* TAG / BADGE (Aqua Transparan) */
         .tag-container {
           display: flex;
           flex-wrap: wrap;
-          gap: 10px;
-          margin-top: 6px;
+          gap: 8px;
+          margin-top: 10px;
         }
         .tag {
-          background: rgba(0, 180, 216, 0.1);
-          color: #90e0ef;
-          padding: 6px 16px;
-          border-radius: 50px;
-          font-size: 0.85rem;
-          border: 1px solid rgba(0, 180, 216, 0.2);
+          background: rgba(39, 47, 162, 0.06);
+          color: #272FA2;
+          padding: 5px 14px;
+          border-radius: 15px;
+          font-size: 0.82rem;
+          font-weight: 500;
+          border: 1px solid rgba(205, 206, 234, 0.6);
+          transition: all 0.2s ease;
         }
         .tag:hover {
-          background: rgba(0, 180, 216, 0.25);
-          transform: scale(1.05);
+          background: #272FA2;
+          color: #FFFFFF;
         }
 
-        /* SEJARAH */
         .sejarah-text {
-          color: #e0fbfc;
-          line-height: 1.8;
-          margin-bottom: 14px;
-          font-size: 0.95rem;
-          text-align: justify;
+          color: #475569;
+          line-height: 1.7;
+          margin-bottom: 12px;
+          font-size: 0.92rem;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 992px) {
           .profil-wrapper {
             grid-template-columns: 1fr;
@@ -184,30 +183,29 @@ const Profil = () => {
           .header-title {
             font-size: 2rem;
           }
+        }
+        @media (max-width: 480px) {
           .stat-grid {
             grid-template-columns: 1fr;
           }
         }
       `}</style>
 
-      {/* ==================== HALAMAN HTML ==================== */}
       <div className="container">
         
         {/* HEADER */}
         <h1 className="header-title">Profil Desa Padakembang</h1>
-        <p className="header-subtitle">Mengenal Lebih Dekat Desa Energi Mandiri di Tasikmalaya</p>
+        <p className="header-subtitle">Mengenal lebih dekat potensi dan struktur wilayah Desa Energi Mandiri</p>
 
         {/* CONTENT WRAPPER */}
         <div className="profil-wrapper">
           
-          {/* ============================================ */}
           {/* KOLOM KIRI */}
-          {/* ============================================ */}
           <div className="profil-left">
             
             {/* Identitas Desa */}
-            <div className="glass-card">
-              <h3 className="card-title"> Identitas Desa</h3>
+            <div className="clean-profile-card">
+              <h3 className="card-title">Identitas Wilayah</h3>
               <div className="text-row"><strong>Nama Desa:</strong> Padakembang</div>
               <div className="text-row"><strong>Kecamatan:</strong> Padakembang</div>
               <div className="text-row"><strong>Kabupaten:</strong> Tasikmalaya</div>
@@ -217,16 +215,16 @@ const Profil = () => {
             </div>
 
             {/* Luas Wilayah */}
-            <div className="glass-card">
-              <h3 className="card-title"> Luas & Potensi Wilayah</h3>
-              <div className="text-row"><strong>Luas Area:</strong> 254 Hektar <span className="text-detail">(data estimasi)</span></div>
+            <div className="clean-profile-card">
+              <h3 className="card-title">Luas & Potensi Wilayah</h3>
+              <div className="text-row"><strong>Luas Area:</strong> 254 Hektar <span className="text-detail">(estimasi)</span></div>
               <div className="text-row"><strong>Penggunaan Lahan:</strong> Pertanian, Pemukiman, Hutan Desa</div>
-              <div className="text-row"><strong>Potensi Alam:</strong> Biofarmaka (Mint & Rosella), Air Panas</div>
+              <div className="text-row"><strong>Potensi Alam:</strong> Biofarmaka (Mint & Rosella), Sumber Air Panas</div>
             </div>
 
             {/* Batas Wilayah */}
-            <div className="glass-card">
-              <h3 className="card-title"> Batas Wilayah</h3>
+            <div className="clean-profile-card">
+              <h3 className="card-title">Batas Wilayah Administratif</h3>
               <div className="border-item">
                 <span className="border-label">Utara:</span>
                 <span className="border-value">Desa Linggajati</span>
@@ -247,59 +245,57 @@ const Profil = () => {
 
           </div>
 
-          {/* ============================================ */}
           {/* KOLOM KANAN */}
-          {/* ============================================ */}
           <div className="profil-right">
 
             {/* Visi & Misi */}
-            <div className="glass-card">
-              <h3 className="card-title"> Visi & Misi</h3>
+            <div className="clean-profile-card">
+              <h3 className="card-title">Visi & Misi Desa</h3>
               <div className="visi-box">
                 <h4>Visi</h4>
-                <p className="text-row" style={{fontStyle: 'italic'}}>
+                <p className="text-row" style={{ fontStyle: 'italic', color: '#272FA2', fontWeight: 500 }}>
                   "Terwujudnya Desa Padakembang yang Mandiri, Inovatif, dan Sejahtera Berbasis Potensi Lokal"
                 </p>
               </div>
               <div className="visi-box">
                 <h4>Misi</h4>
                 <ol className="misi-list">
-                  <li>Meningkatkan tata kelola pemerintahan desa yang transparan dan akuntabel</li>
-                  <li>Mengembangkan potensi pertanian dan biofarmaka secara berkelanjutan</li>
-                  <li>Mendorong pertumbuhan ekonomi kerakyatan melalui pengembangan UMKM</li>
-                  <li>Mewujudkan desa wisata yang berdaya saing</li>
-                  <li>Meningkatkan kualitas SDM melalui pendidikan dan pelatihan</li>
+                  <li>Meningkatkan tata kelola pemerintahan desa yang transparan dan akuntabel.</li>
+                  <li>Mengembangkan potensi pertanian dan biofarmaka secara berkelanjutan.</li>
+                  <li>Mendorong pertumbuhan ekonomi kerakyatan melalui pengembangan UMKM.</li>
+                  <li>Mewujudkan desa wisata yang berdaya saing dan mandiri energi.</li>
+                  <li>Meningkatkan kualitas SDM melalui pendidikan dan pelatihan terpadu.</li>
                 </ol>
               </div>
             </div>
 
             {/* Sejarah Singkat */}
-            <div className="glass-card">
-              <h3 className="card-title"> Sejarah Singkat</h3>
+            <div className="clean-profile-card">
+              <h3 className="card-title">Sejarah Singkat</h3>
               <p className="sejarah-text">
-                Desa Padakembang terletak di Kecamatan Padakembang, Kabupaten Tasikmalaya. Dikenal sebagai desa yang aktif mengembangkan potensi lokal, terutama di bidang pertanian, biofarmaka, dan wisata.
+                Desa Padakembang terletak di lereng Gunung Galunggung, Kabupaten Tasikmalaya. Dikenal dengan masyarakat yang gotong royong dan kepedulian tinggi terhadap kelestarian lingkungan serta kemandirian energi.
               </p>
               <p className="sejarah-text">
-                Masyarakatnya hidup gotong royong mengembangkan wilayah, termasuk wisata pemandian air panas, wisata religi, dan kerajinan. Desa ini juga menjadi pelopor pengembangan <strong>Mint</strong> dan <strong>Rosella</strong> yang berkontribusi besar terhadap pendapatan petani.
+                Desa ini menjadi pelopor budidaya <strong>Mint</strong> dan <strong>Rosella</strong> serta pengelolaan energi baru terbarukan terpadu yang meningkatkan kesejahteraan warganya.
               </p>
             </div>
 
-            {/* Potensi Pertanian & UMKM */}
-            <div className="glass-card">
-              <h3 className="card-title"> Potensi Ekonomi</h3>
+            {/* Potensi Ekonomi */}
+            <div className="clean-profile-card">
+              <h3 className="card-title">Potensi Ekonomi & UMKM</h3>
               <div className="stat-grid">
                 <div className="stat-box">
                   <span className="stat-value">Rp 3.535.914</span>
                   <span className="stat-label">Pendapatan Biofarmaka / Periode</span>
                 </div>
-                <div className="stat-box">
-                  <span className="stat-value">27,12%</span>
+                <div className="stat-box" style={{ borderLeftColor: '#53AA4B' }}>
+                  <span className="stat-value" style={{ color: '#53AA4B' }}>27,12%</span>
                   <span className="stat-label">Kontribusi Pendapatan Petani</span>
                 </div>
               </div>
               
-              <div style={{marginTop: '16px'}}>
-                <p className="text-row" style={{fontWeight: 600}}>Potensi Wisata & UMKM</p>
+              <div style={{ marginTop: '20px' }}>
+                <p className="text-row" style={{ fontWeight: 600, color: '#0F172A' }}>Sektor Unggulan:</p>
                 <div className="tag-container">
                   <span className="tag">Wisata Air Panas</span>
                   <span className="tag">Wisata Religi</span>
