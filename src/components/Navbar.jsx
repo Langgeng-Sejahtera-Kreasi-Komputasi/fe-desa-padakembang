@@ -56,11 +56,16 @@ const Navbar = ({ menuOpen, setMenuOpen }) => {
             </Link>
           </li>
 
-          {/* ★ TAMBAHAN BARU: Tombol Login Admin ★ */}
+          {/* ★ UBAH KE LINK EKSTERNAL KAWAL DESA ★ */}
           <li>
-            <Link to="/login" className="navbar__login">
+            <a 
+              href="https://kawaldesa.smartsystem.id/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="navbar__login"
+            >
               <span className="icon"></span> Login Admin
-            </Link>
+            </a>
           </li>
         </ul>
 
