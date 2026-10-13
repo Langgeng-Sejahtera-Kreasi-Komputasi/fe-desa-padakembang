@@ -68,7 +68,16 @@ const Footer = () => {
         }}>
           <div>&copy; 2026 Pemerintah Desa Padakembang. Hak Cipta Dilindungi.</div>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <Link to="/login" style={{ color: '#64748B' }} onMouseOver={e => e.target.style.color = '#CDCEEA'} onMouseOut={e => e.target.style.color = '#64748B'}>Portal Staf & Admin</Link>
+            <a 
+              href="https://kawaldesa.smartsystem.id/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: '#64748B', textDecoration: 'none' }} 
+              onMouseOver={e => e.target.style.color = '#CDCEEA'} 
+              onMouseOut={e => e.target.style.color = '#64748B'}
+            >
+              Login Admin
+            </a>
           </div>
         </div>
       </div>
